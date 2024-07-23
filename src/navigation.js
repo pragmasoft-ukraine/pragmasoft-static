@@ -4,6 +4,8 @@ import { useTranslations } from './i18n/utils';
 
 export const headerData = (locale) => {
   const t = useTranslations(locale);
+  
+  console.log("HOME LINK", getHomePermalink(locale));
 
   return ({
     links: [
