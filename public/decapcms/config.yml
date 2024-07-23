@@ -1,7 +1,8 @@
 local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
+  repo: pragmasoft-ukraine/pragmasoft-static
   branch: master
 
 media_folder: 'src/assets/images'
