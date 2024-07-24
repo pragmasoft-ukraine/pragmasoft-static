@@ -17,7 +17,12 @@ const {
 {
   <select class={className} aria-label={label} data-select-locale>
     {Object.entries(languages).map(([lang, label]) => (
-      <option value={replacePermalinkLocale(Astro.url.pathname, lang)} aria-label={label} title={label} selected={lang===Astro.currentLocale}>{lang}</option>
+      <option value={lang} aria-label={label} title={label} selected={lang===Astro.currentLocale}>{lang}</option>
     ))}
   </select>
+  <div class="hidden">
+    {Object.entries(languages).map(([lang, _]) => (
+      <a data-switch-locale={lang} href={replacePermalinkLocale(Astro.url.pathname, lang)}></a>
+    ))}
+  </div>
 }
