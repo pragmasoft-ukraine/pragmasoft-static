@@ -100,7 +100,21 @@ export interface TextSection extends NamedSection {
   background?: 'gray',
 }
 
-export type Section = ProjectSection | AboutSection | TeamSection | HeroSection | TextSection;
+export interface UkraineSection extends NamedSection {
+  type: 'ukraine',
+
+  /**  */
+  reasons: string[],
+  summary: string,
+}
+
+export type Section = 
+  | ProjectSection 
+  | AboutSection 
+  | TeamSection 
+  | HeroSection 
+  | TextSection 
+  | UkraineSection;
 
 export interface SimpleTestimonial {
   testimonial: string;

@@ -83,6 +83,20 @@ const getNormalizedSection = async (section: CollectionEntry<'section'>): Promis
         Content: Content,
       };
     }
+    case 'ukraine': {
+      const {title, reasons, summary} = data;
+      return {
+        id: id,
+        slug: slug,
+        reasons: reasons,
+        summary: summary,
+    
+        title: title,
+        type: type,
+    
+        Content: Content,
+      };
+    }
   }
 };
 

@@ -1,0 +1,48 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import type { UkraineSection } from '~/types';
+import Image from '~/components/common/Image.astro';
+
+import ukraine from '~/assets/images/ukraine/03_ua.png';
+
+type Props = {
+  id?: string;
+  section: UkraineSection;
+}
+
+const {
+  id,
+  section,
+} = Astro.props;
+
+const BG_COLOR = '#485365';
+---
+
+<WidgetWrapper id={id} containerClass="text-white">
+  <Headline classes={{
+    title: "font-light text-[40px] leading-none text-center", 
+    container: "font-light text-start text-[18px] md:max-w-[970px] mx-auto relative",
+  }}>
+    <Fragment slot="title" set:html={section.title}/>
+    <Fragment slot="subtitle">
+      <ul class="list-disc mx-6">
+        {section.reasons.map((reason) => (
+          reason && (
+            <li class=""><Fragment set:html={reason} /></li>
+          )
+        ))}
+      </ul>
+      <p class="hidden md:block text-[#fad31a] italic mt-[140px] leading-6"><Fragment set:html={section.summary} /></p>
+      <Image src={ukraine} alt='' class="md:absolute !object-contain mx-auto md:mx-0 my-[30px] md:my-0 !w-auto md:h-[250px] lg:h-[300px] top-[350px] right-[50px] lg:top-[250px] lg:right-[150px]"/>
+    </Fragment>
+  </Headline>
+  <Fragment slot="bg">
+    <div class="[background:var(--pragma-ukraine-bg)] w-full h-full"
+      style={`--pragma-ukraine-bg:${BG_COLOR}`}>
+    </div>    
+  </Fragment>
+</WidgetWrapper>
+<style>
+
+</style>

@@ -32,6 +32,9 @@ const projects = await getProjectFeatures(section.slug);
     title={section.title}
     classes={{
       container: `bg-[var(--pragma-section-bg)] ${text}`,
+      headline: {
+        subtitle: `hidden`,
+      },
       items: {
         container: `${section.parallax ? 'parallax-items' : ''}`
       },

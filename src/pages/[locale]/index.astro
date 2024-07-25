@@ -28,6 +28,7 @@ const sectionMap = Object.fromEntries(sections.map(section => ([section.slug.rep
     {sectionMap["cloud"] && <Section id="cloud" section={sectionMap["cloud"]}/>}
     {sectionMap["design"] && <Section id="design" section={sectionMap["design"]}/>}
   </div>
+  {sectionMap["ukraine"] && <Section id="ukraine" section={sectionMap["ukraine"]}/>}
   {sectionMap["team"] && <Section id="team" section={sectionMap["team"]}/>}
   {sectionMap["quality"] && <Section id="quality" section={sectionMap["quality"]}/>}
 </Layout>

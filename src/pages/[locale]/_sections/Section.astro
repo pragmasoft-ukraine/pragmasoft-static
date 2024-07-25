@@ -5,6 +5,7 @@ import AboutSection from './AboutSection.astro';
 import TeamSection from './TeamSection.astro';
 import HeroSection from './HeroSection.astro';
 import TextSection from './TextSection.astro';
+import UkraineSection from './UkraineSection.astro';
 
 type Props = {
   id?: string;
@@ -28,5 +29,7 @@ const {
           ? <HeroSection id={id} section={section}/> 
           : section.type === 'text'
             ? <TextSection id={id} section={section}/> 
-            : <Fragment/>
+            : section.type === 'ukraine'
+              ? <UkraineSection id={id} section={section}/> 
+              : <Fragment/>
 }

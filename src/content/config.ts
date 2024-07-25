@@ -110,7 +110,13 @@ const sectionCollection = defineCollection({
       type: z.literal("hero"),
 
       testimonials: z.array(testimonialDefinition),
-    })
+    }),
+    namedSectionDefinition.merge(z.object({
+      type: z.literal("ukraine"),
+
+      reasons: z.array(z.string()),
+      summary: z.string(),
+    })),
   ]),
 });
 
