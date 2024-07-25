@@ -12,11 +12,10 @@ const getNormalizedSection = async (section: CollectionEntry<'section'>): Promis
 
   switch(type) {
     case 'text': {
-      const {title, background} = data;
+      const {title} = data;
       return {
         id: id,
         slug: slug,
-        background: background,
     
         title: title,
         type: type,

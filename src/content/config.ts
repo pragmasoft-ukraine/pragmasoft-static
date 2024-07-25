@@ -103,8 +103,6 @@ const sectionCollection = defineCollection({
     })),
     namedSectionDefinition.merge(z.object({
       type: z.literal("text"),
-
-      background: z.enum(["gray"]).optional(),
     })),
     z.object({
       type: z.literal("hero"),

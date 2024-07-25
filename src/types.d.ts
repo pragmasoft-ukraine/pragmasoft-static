@@ -95,9 +95,6 @@ export interface HeroSection extends BaseSection {
 
 export interface TextSection extends NamedSection {
   type: 'text',
-
-  /**  */
-  background?: 'gray',
 }
 
 export interface UkraineSection extends NamedSection {
