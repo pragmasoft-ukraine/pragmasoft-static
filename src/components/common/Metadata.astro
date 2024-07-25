@@ -4,15 +4,18 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
+import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
 import { adaptOpenGraphImages } from '~/utils/images';
+import { useTranslations } from '~/i18n/utils';
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
 }
+
+const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
 
 const {
   title,
@@ -36,7 +39,7 @@ const seoProps: AstroSeoProps = merge(
       url: canonical,
       site_name: SITE?.name,
       images: [],
-      locale: I18N?.language || 'en',
+      locale: Astro.currentLocale || 'en',
       type: 'website',
     },
     twitter: {
@@ -51,6 +54,11 @@ const seoProps: AstroSeoProps = merge(
     description: METADATA?.description,
     openGraph: METADATA?.openGraph,
     twitter: METADATA?.twitter,
+  },
+  {
+    title: t('meta.title.default'),
+    titleTemplate: t('meta.title.template'),
+    description: t('meta.description'),
   },
   {
     title: title,

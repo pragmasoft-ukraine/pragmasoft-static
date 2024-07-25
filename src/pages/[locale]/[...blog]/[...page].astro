@@ -1,5 +1,6 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { useTranslations } from '~/i18n/utils';
 
 import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
@@ -23,8 +24,10 @@ const currentPage = page.currentPage ?? 1;
 // const allCategories = await findCategories();
 // const allTags = await findTags();
 
+const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
+
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title: `${t('blog.meta.title')}${currentPage > 1 ? ` — ${t('pagination.page')} ${currentPage}` : ''}`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -38,9 +41,9 @@ const metadata = {
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
+      subtitle={t('blog.description')}
     >
-      The Blog
+      {t('blog.title')}
     </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />

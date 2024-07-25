@@ -28,7 +28,7 @@ const optimizedArrowRight = await getImage({src: arrowRight, format: 'png'});
             <div class={`flex shrink-0 px-[30px] h-auto w-full ${index === 0 ? 'current' : '' }`} data-carousel-slide>
               {testimonial && (
                 <blockquote class="flex-auto">
-                  <p class="text-muted">«{testimonial}»</p>
+                  <p class="text-muted">«<Fragment set:html={testimonial}/>»</p>
                 </blockquote>
               )}
             </div>
