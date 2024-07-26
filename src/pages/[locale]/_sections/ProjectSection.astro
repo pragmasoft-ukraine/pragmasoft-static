@@ -22,7 +22,7 @@ const variants = {
   'blue': '#00B0F3',
 }
 const color = variant !== 'custom' ? variants[variant] : '';
-const text = variant === 'sky' || variant === 'orange' ? 'text-muted' : 'text-white';
+const text = variant === 'sky' || variant === 'orange' ? 'text-secondary' : 'text-white';
 
 const projects = await getProjectFeatures(section.slug);
 ---
