@@ -3,8 +3,11 @@ import { Icon } from 'astro-icon/components';
 import { getBlogPermalink } from '~/utils/permalinks';
 import { I18N } from 'astrowind:config';
 import Button from '~/components/ui/Button.astro';
+import { useTranslations } from '~/i18n/utils';
 
 const { locales } = I18N;
+
+const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
 ---
 
 <div class="mx-auto px-6 sm:px-6 max-w-3xl pt-8 md:pt-4 pb-12 md:pb-20">
@@ -15,6 +18,6 @@ const { locales } = I18N;
       ) : (
         <Icon name="tabler:chevron-left" class="w-5 h-5 mr-1 -ml-1.5 rtl:-mr-1.5 rtl:ml-1" />
       )
-    } Back to Blog
+    } {t('link.projects.back')}
   </Button>
 </div>

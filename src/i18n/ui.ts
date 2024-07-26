@@ -18,14 +18,24 @@ export const ui = {
     'blog.description': 'Pragmasoft company blog with completed projects.',
 
     'tag.meta.title': 'Projects by tag',
+    'tag.title': 'Tag',
 
     'category.meta.title': 'Category',
 
     'pagination.page': 'Page',
+    'pagination.prev': 'Newer projects',
+    'pagination.next': 'Older projects',
 
     'meta.title.default': 'Pragmasoft',
     'meta.title.template': '%s — Pragmasoft',
     'meta.description': '🪁 Pragmasoft is a team of highly qualified specialists with 20 years of successful software development.',
+
+    'related.title': 'Related Projects',
+    'related.all': 'View All Projects',
+
+    'link.projects.back': 'Back to Projects',
+
+    'social.share': 'Share',
   },
   uk: {
     'nav.about': 'Про нас',
@@ -39,13 +49,23 @@ export const ui = {
     'blog.description': 'Блог компанії Прагмасофт, що містить завершені проєкти.',
 
     'tag.meta.title': 'Проєкти за тегом',
+    'tag.title': 'Тег',
 
     'category.meta.title': 'Категорія',
 
     'pagination.page': 'Сторінка',
+    'pagination.prev': 'Новіші проєкти',
+    'pagination.next': 'Старіші проєкти',
 
     'meta.title.default': 'Прагмасофт',
     'meta.title.template': '%s — Прагмасофт',
     'meta.description': '🪁 Прагмасофт — це команда висококваліфікованих спеціалістів із 20-річним стажем успішної розробки програмного забезпечення.',
+
+    'related.title': 'Пов&#39;язані Проєкти',
+    'related.all': 'Переглянути Всі Проєкти',
+
+    'link.projects.back': 'Назад до Проєктів',
+
+    'social.share': 'Поділитися',
   },
 } as const;

@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { getPermalink } from '~/utils/permalinks';
 import Button from '~/components/ui/Button.astro';
+import { useTranslations } from '~/i18n/utils';
 
 export interface Props {
   prevUrl?: string;
@@ -10,7 +11,9 @@ export interface Props {
   nextText?: string;
 }
 
-const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } = Astro.props;
+const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
+
+const { prevUrl, nextUrl, prevText = t('pagination.prev'), nextText = t('pagination.next') } = Astro.props;
 ---
 
 {
