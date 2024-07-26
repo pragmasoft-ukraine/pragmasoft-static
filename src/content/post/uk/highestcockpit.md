@@ -12,9 +12,9 @@ tags:
   - JHipster
 ---
 
-*Technologies:* ReactJS, Gupl, SASS, Spring, SpringData, SpringBoot, JHipster.
+*Технології:* ReactJS, Gupl, SASS, Spring, SpringData, SpringBoot, JHipster.
 
-System for analyzing the success of startups and visualizations results.
+Система для аналізу успішності стартапів і візуалізації результатів.
 
 ![highestcockpit](~/assets/images/project/java/HC1.png)
 ![highestcockpit](~/assets/images/project/java/HC2.png)

@@ -9,21 +9,21 @@ tags:
   - icon design
   - XHTML\CSS
 metadata:
-  keywords: Pragmasoft, web design, BRANCHENBUCH
-  description: BRANCHENBUCH – clean design for a German online yellow pages directory. The main requirement for this project was to provide clean Web 2.0, Google-like design. Developed by Pragmasoft
+  keywords: Pragmasoft, веб-дизайн, BRANCHENBUCH
+  description: BRANCHENBUCH – чистий дизайн для німецького онлайн-довідника жовтих сторінок. Основною вимогою для цього проекту було забезпечення чистого дизайну в стилі Web 2.0, схожого на Google. Розроблено Pragmasoft
 ---
 
-*Technologies:* web design, UI optimization, logo design, icon design, XHTML/CSS.
+*Технології:* веб-дизайн, оптимізація інтерфейсу, дизайн логотипу, дизайн іконок, XHTML/CSS.
 
-Clean design for a German online yellow pages directory.
+Чистий дизайн для німецького онлайн-довідника жовтих сторінок.
 
-The main requirement for this project was to provide clean Web 2.0, Google-like design.
+Основною вимогою для цього проекту було забезпечення чистого дизайну в стилі Web 2.0, схожого на Google.
 
-In terms of this project we were responsible for logo and icon development. We thought against using 'running fingers' logo (which is a traditional yellow pages logo) to make BranchenBuchSuche stand out - we used the idea of sign post, as a media to provide the needed info! We also decided not to use bright yellow color as dominating in design, and we went for clean, white design - for it to be convenient and non-aggressive for every-day use.
+В рамках цього проекту ми відповідали за розробку логотипу та іконок. Ми вирішили не використовувати логотип з «бігаючими пальцями» (який є традиційним логотипом жовтих сторінок), щоб виділити BranchenBuchSuche - ми використали ідею вказівника як медіа для надання потрібної інформації! Ми також вирішили не використовувати яскраво-жовтий колір як домінуючий у дизайні, і пішли на чистий, білий дизайн - щоб він був зручним та неагресивним для щоденного використання.
 
-While developing icons, we decided to implement color coding there. In such way a user will look for specific colors while using the site: he would be looking for blue when he wants to skype, he will be guided by brown, when he wants to print the info, and so on.
+Під час розробки іконок ми вирішили реалізувати колірне кодування. Таким чином користувач буде шукати певні кольори, використовуючи сайт: він буде шукати синій, коли хоче скористатися Skype, буде орієнтуватися на коричневий, коли хоче роздрукувати інформацію тощо.
 
-What is there else to say - just take a look at the design!
+Що ще можна сказати - просто подивіться на дизайн!
 
 ![Arcas](~/assets/images/project/design/Branchenbuch-1.jpg)
 ![Arcas](~/assets/images/project/design/Branchenbuch-2.jpg)

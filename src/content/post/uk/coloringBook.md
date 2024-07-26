@@ -7,10 +7,10 @@ tags:
   - Media Player Framework
 ---
 
-*Technologies:* Facebook API, Media Player Framework, Core Graphics Framework, Web View Control, HTML.
+*Технології:* Facebook API, Media Player Framework, Core Graphics Framework, Web View Control, HTML.
 
-Story Chimes is a coloring book iPhone app. It's fun, bright and entertaining. You can pick a picture from the gallery and color it in any way you like.
+Story Chimes - це книжка-розмальовка для iPhone. Вона весела, яскрава та захоплююча. Ви можете вибрати малюнок із галереї та розфарбувати його як завгодно.
 
-UI is simple and intuitive. Pick a color for crayon in the scroll-through gallery, adjust the scaling, select brush size and you are ready to go. Watch out to fit in the outlines. After you finished drawing, you can save the picture to your Photos or share it at Facebook.
+Інтерфейс простий та інтуїтивно зрозумілий. Виберіть колір олівця в галереї прокрутки, налаштуйте масштабування, виберіть розмір пензля і можна починати. Слідкуйте, щоб не виходити за контури. Після завершення малювання ви можете зберегти малюнок у своїх фото або поділитися ним у Facebook.
 
 ![coloring book](~/assets/images/project/mobile/storychimes.jpg)

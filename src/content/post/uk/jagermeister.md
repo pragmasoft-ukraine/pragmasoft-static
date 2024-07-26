@@ -12,12 +12,12 @@ tags:
   - Grunt
 metadata: 
   keywords: Pragmasoft, cloud computing, JAGERMEISTER
-  description: project for simple and scheduled running instances on cloud providers. Developed by Pragmasoft.
+  description: проект для простого та запланованого запуску інстанцій на хмарних провайдерах. Розроблено Pragmasoft.
 ---
 
-*Technologies:* Java, Spring Framework, Spring Security, Google Guava, JClouds, React JS, React Router, Grunt.
+*Технології:* Java, Spring Framework, Spring Security, Google Guava, JClouds, React JS, React Router, Grunt.
 
-Project extensively uses API of Cloud Providers, such as AWS EC2, Google Cloud Engine, Microsoft Azure to run, pause, stop and terminate instances by given simple or cron schedule.
+Проект активно використовує API хмарних провайдерів, таких як AWS EC2, Google Cloud Engine, Microsoft Azure для запуску, паузи, зупинки та завершення інстанцій за заданим простим або cron розкладом.
 
 ![Jagermeister](~/assets/images/project/cloud/Jag1.png)
 ![Jagermeister](~/assets/images/project/cloud/Jag2.png)

@@ -13,16 +13,16 @@ tags:
   - AngularJS
 metadata: 
   keywords: Pragmasoft, JAVA, cloud computing, ReadyTech Axis
-  description: ReadyTech Axis - This is the SAAS platform for planning consistent cloud resources. Developed by Pragmasoft
+  description: ReadyTech Axis - Це SAAS платформа для планування узгоджених ресурсів у хмарі. Розроблено Pragmasoft
 ---
 
-*Technologies:* Spring Boot, Hibernate, Redis, Docker, Amazon Web Services, Google Cloud Platform, Microsoft Azure, AngularJS, Bootstrap, Websockets, Recurly payment gateway
+*Технології:* Spring Boot, Hibernate, Redis, Docker, Amazon Web Services, Google Cloud Platform, Microsoft Azure, AngularJS, Bootstrap, Websockets, платіжний шлюз Recurly
 
-ReadyTech Axis is a SAAS platform allows for a complex scheduling of coordinated cloud resources for the purpose of organizing training events
+ReadyTech Axis - це SAAS платформа, яка дозволяє складне планування узгоджених хмарних ресурсів для організації навчальних подій.
 
-* Supports automated management of cloud resources on major cloud providers
-* The application is built using DDD principles
-* Clustered and load balanced backend allows for horizontal scalability and failover
+* Підтримує автоматизоване управління хмарними ресурсами на основних постачальниках хмарних послуг
+* Додаток побудований за принципами DDD
+* Кластеризоване та балансоване навантаження серверне середовище дозволяє горизонтальне масштабування та відмовостійкість
 
 ![ReadyTech](~/assets/images/project/cloud/readytech1.png)
 ![ReadyTech](~/assets/images/project/cloud/readytech2.png)

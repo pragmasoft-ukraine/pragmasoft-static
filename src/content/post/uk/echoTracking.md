@@ -8,13 +8,13 @@ tags:
   - Google Maps API
 ---
 
-*Technologies:* Neo4j, Javascript, Google Maps API.
+*Технології:* Neo4j, Javascript, Google Maps API.
 
-Web application for transport companies which includes next functionality:
-* route building
-* AVG revenue calculation
-* AVG margin calculation
-* AVG margin rate calculation
+Веб-додаток для транспортних компаній, який включає наступні функції:
+* побудова маршрутів
+* розрахунок середнього доходу
+* розрахунок середньої маржі
+* розрахунок середнього рівня маржі
 
 ![echo tracking](~/assets/images/project/java/ET1.png)
 ![echo tracking](~/assets/images/project/java/ET2.png)

@@ -9,13 +9,13 @@ tags:
 image: ~/assets/images/project/design/horse.jpg
 metadata:
   keywords: Pragmasoft, web design, HORSE RACING
-  description: HORSE RACING – nice example of sport site design, which corresponds to main tendencies pointed out in Smashing magazine sport site showcase. Developed by Pragmasoft
+  description: HORSE RACING – гарний приклад дизайну спортивного сайту, який відповідає основним тенденціям, зазначеним у шоукейсі спортивних сайтів журналу Smashing. Розроблено Pragmasoft
 ---
-*Technologies:* web design, UI optimization, logo design, XHTML/CSS.
+*Технології:* веб-дизайн, оптимізація UI, дизайн логотипу, XHTML/CSS.
 
-Horse Racing Nation is a nice example of sport site design, which corresponds to main tendencies pointed out in "Smashing magazine":http://www.smashingmagazine.com/2009/04/04/showcase-of-beautiful-sports-websites/  sport site showcase.
+Horse Racing Nation є гарним прикладом дизайну спортивного сайту, який відповідає основним тенденціям, зазначеним у "Smashing magazine":http://www.smashingmagazine.com/2009/04/04/showcase-of-beautiful-sports-websites/  шоукейсі спортивних сайтів.
 
-Please have a look at the final variant of the design approved:
+Будь ласка, ознайомтесь з остаточним варіантом затвердженого дизайну:
 
 ![Horse racing](~/assets/images/project/design/Horse_2.jpg)
 ![Horse racing](~/assets/images/project/design/Horse_3.jpg)

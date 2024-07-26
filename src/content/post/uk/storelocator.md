@@ -8,14 +8,14 @@ tags:
   - Facebook and Google OAuth 2.0
 ---
 
-*Technologies:*  Apache Cordova/PhoneGap, jQuery mobile, Facebook and Google OAuth 2.0, Google Maps API, Geolocation API.
+*Технології:* Apache Cordova/PhoneGap, jQuery mobile, Facebook і Google OAuth 2.0, Google Maps API, Geolocation API.
 
-Storelocator is now available for mobile devices and can be downloaded "here":http://storelocator.no/.
-Finally Storelocator is available for the mobile phone, a must-have for anyone who loves shopping. Now you can save time running around in alien cities not finding the stores you are looking for. Simple search will quickly locate the stores selling the brand you are looking for.
+Storelocator тепер доступний для мобільних пристроїв і його можна завантажити "тут":http://storelocator.no/.
+Нарешті Storelocator доступний для мобільного телефону, обов'язковий для всіх, хто любить шопінг. Тепер ви можете заощадити час, не шукаючи магазини в незнайомих містах. Простий пошук швидко знайде магазини, що продають бренди, які вас цікавлять.
 
-If you like traveling and shopping, then Storelocator for mobile is the ultimate tool for the shopping savvy customer. Plan your trip in advance by creating shopping guides online and add the stores you wish to visit. Once you have arrived at your destination, open the guide on your smart phone and finding the stores will make shopping a walk in the park.
+Якщо ви любите подорожувати і шопінг, то Storelocator для мобільних пристроїв - це ідеальний інструмент для досвідченого покупця. Сплануйте свою подорож заздалегідь, створивши онлайн-гід по магазинам та додавши магазини, які ви хочете відвідати. Як тільки ви приїдете на місце, відкрийте гід на вашому смартфоні, і знайти магазини буде дуже просто.
 
-## Screenshots
+## Скриншоти
 
 ![Storelocator](~/assets/images/project/mobile/Store_Locator_2_1.png)
 ![Storelocator](~/assets/images/project/mobile/Store_Locator_1_1_1.png)

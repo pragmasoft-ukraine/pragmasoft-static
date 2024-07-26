@@ -7,13 +7,13 @@ tags:
   - Jquery
   - HTML\CSS
 metadata:
-  keywords: Pragmasoft, web design, ARCAS
-  description: ARCAS – Publisher Arcas produces scientific and popular publications allow readers to lead more healthy and fulfilling life. Developed by Pragmasoft
+  keywords: Pragmasoft, веб-дизайн, ARCAS
+  description: ARCAS – видавництво Arcas випускає наукові та популярні видання, що дозволяють читачам вести здоровіше та повноцінніше життя. Розроблено Pragmasoft
 ---
 
-*Technologies:* JavaScript, jQuery, HTML/CSS
+*Технології:* JavaScript, jQuery, HTML/CSS
 
-Publisher Arcas produces scientific and popular publications allow readers to lead more healthy and fulfilling life.
+Видавництво Arcas випускає наукові та популярні видання, що дозволяють читачам вести здоровіше та повноцінніше життя.
 
 ![Arcas](~/assets/images/project/design/arcas-1.jpg)
 ![Arcas](~/assets/images/project/design/arcas-2.jpg)

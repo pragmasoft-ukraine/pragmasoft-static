@@ -10,16 +10,16 @@ tags:
   - AJAX (Richfaces)
 ---
 
-*Technologies:* JavaEE, Spring, Hibernate, JSF, AJAX (Richfaces), OpenCMS, JavaME.
+*Технології:* JavaEE, Spring, Hibernate, JSF, AJAX (Richfaces), OpenCMS, JavaME.
 
-The Vyke suite of IP-enabled services combines this key technology and expertise to provide innovative, low cost and high quality consumer services that build on the foundation provided by Vyke's vertically integrated VoIP communications network. The Vyke suite of IP-enabled end user services are operator independent and among them are:
+Комплект послуг Vyke з підтримкою IP об'єднує ключові технології та експертизу для надання інноваційних, низько вартісних і високоякісних споживчих послуг, що ґрунтуються на основі, забезпеченій вертикально інтегрованою мережею VoIP комунікацій Vyke. Комплект послуг Vyke з підтримкою IP для кінцевих користувачів є незалежним від оператора і серед них:
 
-* Mobile VoIP (VoIP directly from the mobile phone)
-* PC and device based VoIP services
-* Mobile messaging
-* Mobile call back services.
+* Мобільний VoIP (VoIP безпосередньо з мобільного телефону)
+* VoIP послуги на ПК та пристроях
+* Мобільний обмін повідомленнями
+* Мобільні послуги зворотного дзвінка
 
-Vyke's single account billing system allows Vyke users to access any service, at any time, based on a common account balance.
+Єдина система обліку рахунків Vyke дозволяє користувачам Vyke отримувати доступ до будь-якої послуги в будь-який час на основі загального балансу рахунку.
 
 ![Vyke Communications](~/assets/images/project/java/Vyke-com-1.jpg)
 ![Vyke Communications](~/assets/images/project/java/Vyke-com-2.jpg)

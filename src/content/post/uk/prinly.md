@@ -12,19 +12,19 @@ tags:
   - Apache Click
 ---
 
-*Technologies:* Adobe Flex, Java, JavaScript, REST, Spring, Hibernate, Apache Click, FreeMaker, Batik, Jersey, jQuery.
+*Технології:* Adobe Flex, Java, JavaScript, REST, Spring, Hibernate, Apache Click, FreeMaker, Batik, Jersey, jQuery.
 
-Prinly is a powerful online Design Tool to let you design an identity kit online, and have it shipped straight to your door. You can easily design business cards, letterheads, envelopes and postcards with the help of Prinly Design Tool.
+Prinly - це потужний онлайн інструмент дизайну, який дозволяє створювати комплект ідентифікації онлайн і отримувати його безпосередньо на вашу адресу. Ви можете легко створювати візитки, бланки, конверти та листівки за допомогою інструменту дизайну Prinly.
 
-Pragmasoft has contributed significant effort to make the interaction with Prinly intuitive, easy and pleasant. Prinly Designer turned out to be a modern tool built using cutting edge technologies. Now you don't have to address a design studio, and neither you have to master any complex design application, you can easily create a business card on your own in a Prinly Online Designer. It's fast, it's cheap, and the result is nice!
+Pragmasoft внесла значний внесок у те, щоб взаємодія з Prinly була інтуїтивно зрозумілою, легкою та приємною. Дизайнер Prinly виявився сучасним інструментом, побудованим з використанням новітніх технологій. Т тепер не потрібно звертатися до студії дизайну і освоювати складні програми для дизайну - ви можете легко створити візитку самостійно за допомогою онлайн-дизайнера Prinly. Це швидко, дешево і результат приємний!
 
-Pragmasoft team worked on Prinly from scratch. The project scope included:
+Команда Pragmasoft працювала над Prinly з нуля. Обсяг проекту включав:
 
-* Design phase, including logo design, site design, UI/UX analysis and development of the effective interface for online designer, HTML/CSS slicing.
-* Development of the online Design Tool from scratch on Flex.
-* Server side development, scripting.
+* Фазу дизайну, включаючи дизайн логотипу, дизайн сайту, аналіз UI/UX і розробку ефективного інтерфейсу для онлайн-дизайнера, нарізку HTML/CSS.
+* Розробку онлайн інструменту дизайну з нуля на Flex.
+* Розробку серверної частини, скрипти.
 
-The Design Tool deserves a closer look. Pragmasoft has dedicated special attention to enhancing the usability for the Card Designer, make the it work smooth and fast. With Prinly Card Designer you can design a business card using one of a numerous standard backgrounds available at Prinly, design a card with no/solid background, or upload your own background into the system. The Design Tool allows you to work freely with texts, upload custom images and backgrounds; all available panels are arranged in the form of accordion, which uses the screen space effectively and allows for a spacious working area.
+Інструмент дизайну заслуговує на детальніше ознайомлення. Pragmasoft особливо увагу приділила покращенню зручності використання для дизайнера карток, забезпечуючи його плавну і швидку роботу. За допомогою дизайнера карток Prinly ви можете створити візитку, використовуючи один з численних стандартних фонових зображень, доступних на Prinly, створити картку з фоном без фону або завантажити власний фон у систему. Інструмент дизайну дозволяє вільно працювати з текстами, завантажувати власні зображення і фони; всі доступні панелі організовані у формі акордеона, що ефективно використовує простір екрану і забезпечує простору робочу зону.
 
 ![Prinly](~/assets/images/project/java/prinly1.jpg)
 ![Prinly](~/assets/images/project/java/prinly2.jpg)

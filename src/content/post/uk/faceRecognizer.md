@@ -6,17 +6,17 @@ tags:
   - OpenCV
 ---
 
-*Technologies:* OpenCV library.
+*Технології:* Бібліотека OpenCV.
 
-Prototype of iPhone application for recognizing faces, based on the list of selected parameters of person's photo:
+Прототип додатка для iPhone для розпізнавання облич, на основі списку вибраних параметрів фотографії людини:
 
-* Eyes color
-* Hair color
-* Skin color
+* Колір очей
+* Колір волосся
+* Колір шкіри
 
-Library OpenCV was used during working on project.
+Бібліотека OpenCV використовувалася під час роботи над проектом.
 
-## Screenshots from emulator
+## Скриншоти з емулятора
 
 ![face recognizer](~/assets/images/project/mobile/FR1.png)
 ![face recognizer](~/assets/images/project/mobile/FR2.png)

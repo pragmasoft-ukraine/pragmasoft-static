@@ -7,27 +7,27 @@ tags:
   - React JS
 ---
 
-*Technologies:* Rubix, React JS.
+*Технології:* Rubix, React JS.
 
-The project is pure client side demo, based on rubix template, and using same build tools rubix has.
+Проект є демонстраційною версією тільки клієнтської частини, заснованою на шаблоні Rubix і використовує ті ж інструменти збірки, що й Rubix.
 
-It needs to display two tabs or subpages, both containing zoomable partition charts and filters.
+Необхідно відобразити дві вкладки або підсторінки, обидві з яких містять масштабовані діаграми розподілу та фільтри.
 
-For features use "radial tree":http://bl.ocks.org/mbostock/4063550.
+Для функцій використовуйте "радіальне дерево":http://bl.ocks.org/mbostock/4063550.
 
-For test use "zoomable partition":http://mbostock.github.io/d3/talk/20111018/partition.html.
+Для тестування використовуйте "масштабоване розподіл":http://mbostock.github.io/d3/talk/20111018/partition.html.
 
-data should be static json, packaged with the app, long enough, about 500 records each.
+Дані повинні бути статичним JSON, упакованим з додатком, досить довгим, приблизно 500 записів кожен.
 
-Domain model has 2 hierarchical entities:
+Модель домену має 2 ієрархічні сутності:
 
-1) Requirement spec terms with features, subfeatures, etc.
+1) Умови технічного завдання з функціями, підфункціями тощо.
 
-2) Test siutes, containing nested test suites of arbitrary levels, containing test cases.
+2) Набори тестів, що містять вкладені набори тестів довільних рівнів, що містять тестові випадки.
 
-These are related to each other as many to many, ie one feature can be covered by many or none tests, and one test can cover many features.
+Ці сутності взаємопов'язані як багато до багатьох, тобто одна функція може бути охоплена багатьма або жодним тестом, і один тест може охоплювати багато функцій.
 
-Both pages should have freetext search field, entering text there will filter the tree to contain only items with such substrings and their children.
+Обидві сторінки повинні мати поле пошуку вільного тексту; введення тексту в це поле відфільтрує дерево так, щоб містити лише елементи з такими підрядками та їхніми нащадками.
 
 ![Z. P. C.](~/assets/images/project/java/zpc1.png)
 ![Z. P. C.](~/assets/images/project/java/zpc2.png)

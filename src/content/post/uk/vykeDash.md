@@ -11,11 +11,11 @@ tags:
   - Facelets
 ---
 
-*Technologies:* JavaEE, JSF, RichFaces, AJAX4JSF, SIFR, Facelets, Blueprints CSS.
+*Технології:* JavaEE, JSF, RichFaces, AJAX4JSF, SIFR, Facelets, Blueprints CSS.
 
-While working on VYKE Dashboard, our aim was to provide an integrated access point to Vyke administration facilities. We used advantages of Atlassian Crowd. Crowd is a web-based single sign-on (SSO) tool that aims to simplify application provisioning and identity management. VYKE Dashboard is comprised of an administration console and an integration API where such web applications are integrated: JIRA, Confluence, etc.
+Під час роботи над VYKE Dashboard наша мета полягала в наданні інтегрованої точки доступу до адміністративних функцій Vyke. Ми використали переваги Atlassian Crowd. Crowd - це веб-інструмент для єдиного входу (SSO), який має на меті спростити надання додатків та управління ідентичностями. VYKE Dashboard складається з адміністративної консолі та інтеграційного API, де інтегруються такі веб-додатки: JIRA, Confluence тощо.
 
-Pragmasoft design studio provided sleek design to the Dashboard along with convenient customizable GUI, as well as provided HTML/CSS coding services within BlueprintCSS technology.
+Студія дизайну Pragmasoft надала елегантний дизайн для Dashboard разом із зручним настроювальним GUI, а також забезпечила послуги HTML/CSS кодування за технологією BlueprintCSS.
 
 ![VYKE Dashboard](~/assets/images/project/java/Adminka.jpg)
 ![VYKE Dashboard](~/assets/images/project/java/Adminka5.jpg)

@@ -8,9 +8,9 @@ tags:
   - Android SDK
 ---
 
-*Technologies:* Google PlayStore SDK, Google API Client Library for Java, Android SDK.
+*Технології:* Google PlayStore SDK, Google API Client Library for Java, Android SDK.
 
-Android application - demonstrator technologies/proof of concept. Project for filling in and validation Google Forms. Asynchronous data sending for Google Forms via Android Sync Adapter realization.
+Android-додаток - демонстрація технологій/доказ концепції. Проект для заповнення та валідації Google Форм. Асинхронна відправка даних для Google Форм через реалізацію Android Sync Adapter.
 
 ![care innovations](~/assets/images/project/mobile/ci1.png)
 ![care innovations](~/assets/images/project/mobile/ci2.png)

@@ -7,9 +7,9 @@ tags:
   - Core Graphics Framework
 ---
 
-*Technologies:* Network Reachability, Core Graphics Framework, Quartz Core Framework, Media Player framework, AVFoundation framework, Complex animations
+*Технології:* Network Reachability, Core Graphics Framework, Quartz Core Framework, Media Player framework, AVFoundation framework, Complex animations
 
-Strange Parcel - Interactive book for children with titres, voice acting in different languages, animated effects questions, etc.
+Strange Parcel - інтерактивна книга для дітей з титрами, озвучуванням різними мовами, анімаційними ефектами, питаннями тощо.
 
 ![strange parcel](~/assets/images/project/mobile/strange-1.png)
 ![strange parcel](~/assets/images/project/mobile/strange-2.png)

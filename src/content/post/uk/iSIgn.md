@@ -7,9 +7,9 @@ tags:
   - Core Graphics Framework
 ---
 
-*Technologies:* Network Reachability, Core Graphics Framework, Quartz Core Framework, Navigation Controller with custom animation, Email sending customization, PDF generating/viewing,  Core Text Framework, Context menu customization, Undo manager, Printing documents.
+*Технології:* Network Reachability, Core Graphics Framework, Quartz Core Framework, Navigation Controller with custom animation, Email sending customization, PDF generating/viewing, Core Text Framework, Context menu customization, Undo manager, Printing documents.
 
-iSign is a handy app for those who have to deal with numerous paperwork constantly. With iSign you can easily create, edit, authorize and share various documents. You can also easily export any documents to your PC.
+iSign - це зручний додаток для тих, хто постійно має справу з великою кількістю документів. З iSign ви можете легко створювати, редагувати, авторизувати та ділитися різними документами. Ви також можете легко експортувати будь-які документи на ваш ПК.
 
 ![iSIgn](~/assets/images/project/mobile/is7.png)
 ![iSIgn](~/assets/images/project/mobile/is1.png)

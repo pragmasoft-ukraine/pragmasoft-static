@@ -12,16 +12,16 @@ tags:
   - MVVM architecture
 ---
 
-*Technologies:* D3.JS, SVG, Require JS, Grunt, LESS, Bootstrap, MVVM architecture, AWS Technologies.
+*Технології:* D3.JS, SVG, Require JS, Grunt, LESS, Bootstrap, MVVM architecture, AWS Technologies.
 
-FNA is an analytics platform that helps financial institutions and regulators gain insights from complex financial data with network analysis and visualization.
-FNA Platform is a complete solution designed for advanced analysis and visualization of financial networks.
+FNA – це платформа аналітики, яка допомагає фінансовим установам і регуляторам отримувати інформацію з складних фінансових даних за допомогою аналізу і візуалізації мереж.
+Платформа FNA є комплексним рішенням, розробленим для розширеного аналізу та візуалізації фінансових мереж.
 
-* Calculate graph metrics, perform cluster analyses and carry out stress tests and simulations.
-* Create advanced and interactive web based visualizations. Share them freely in your organization, online or in print publications.
-* Run FNA on a desktop computer or on the company intranet. For one or many users.
-* Connect directly to external databases or any online resources.
-* Develop scripts for fully automated and regular analytics or use FNA's REST API from external applications.
+* Розрахунок метрик графів, проведення кластерних аналізів і виконання стрес-тестів та симуляцій.
+* Створення розширених і інтерактивних веб-візуалізацій. Діліться ними в організації, онлайн або в друкованих виданнях.
+* Запуск FNA на настільному комп'ютері або на корпоративній внутрішній мережі. Для одного або кількох користувачів.
+* Пряме підключення до зовнішніх баз даних або будь-яких онлайн-ресурсів.
+* Розробка скриптів для повністю автоматизованої та регулярної аналітики або використання REST API FNA з зовнішніх додатків.
 
 ![fna](~/assets/images/project/java/fna-1.png)
 ![fna](~/assets/images/project/java/fna-2.png)

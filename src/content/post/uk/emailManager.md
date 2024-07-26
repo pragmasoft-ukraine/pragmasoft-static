@@ -8,18 +8,18 @@ tags:
   - Async Web Requests
 ---
 
-*Technologies used:* UIKit, Custom Table View Control, Async Web Requests, JSON, Core Graphics Framework, Localization
+*Використані технології:* UIKit, Custom Table View Control, Async Web Requests, JSON, Core Graphics Framework, Localization
 
-Email manager iPhone app was designed as an add-on to a PC web app, "Email Manager":http://www.emailmanager.com/ ("http://www.emailmanager.com/":http://www.emailmanager.com/). It lets one easily track stats on and manage email mailing lists from one's iPhone.
+Додаток Email Manager для iPhone був розроблений як доповнення до веб-додатка для ПК "Email Manager":http://www.emailmanager.com/ ("http://www.emailmanager.com/":http://www.emailmanager.com/). Він дозволяє легко відстежувати статистику та керувати списками електронних листів з iPhone.
 
-Special attention was given to improving loading times and decreasing the traffic, which is basically gained through asynchronous processing of data.
+Особлива увага була приділена покращенню часу завантаження та зменшенню трафіку, що досягається завдяки асинхронній обробці даних.
 
-Features:
+Функції:
 
-* View reports: the reports are displayed in a form of bar charts
-* Lists: user mail lists are easily manageable through the app. One can easily add a new user, edit users, delete users. There is a nice filter feature to improve navigation through mailing lists.
-* Rewards: review ones rewards and bonuses
-* History: View history
+* Перегляд звітів: звіти відображаються у формі стовпчикових діаграм
+* Списки: списки користувачів легко управляються через додаток. Можна легко додати нового користувача, редагувати користувачів, видаляти користувачів. Є зручна функція фільтрації для покращення навігації через списки розсилки.
+* Нагороди: перегляд своїх нагород і бонусів
+* Історія: перегляд історії
 
 ![email manager](~/assets/images/project/mobile/emailmanager1.jpg)
 ![email manager](~/assets/images/project/mobile/emailmanager2.jpg)

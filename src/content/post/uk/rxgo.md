@@ -10,14 +10,14 @@ tags:
   - Hibernate
 ---
 
-*Technologies:* JavaEE, Widfly Swarm, AWS Elastic Beanstalk, Docker, RestEASY, HTMLEasy, MySQL, Hibernate, Twitter Bootstrap, jQuery
+*Технології:* JavaEE, Widfly Swarm, AWS Elastic Beanstalk, Docker, RestEASY, HTMLEasy, MySQL, Hibernate, Twitter Bootstrap, jQuery
 
-RESTful API to provide data to third-party sites
+RESTful API для надання даних стороннім сайтам
 
-* Database development
-* Import databases from external sources
-* Server-side development (JavaEE)
-* Client-side development (HTML, Twitter Bootstrap, jQuery )
+* Розробка бази даних
+* Імпорт баз даних з зовнішніх джерел
+* Розробка серверної частини (JavaEE)
+* Розробка клієнтської частини (HTML, Twitter Bootstrap, jQuery )
 
 ![RXGO](~/assets/images/project/java/rxgo_0.jpg)
 ![RXGO](~/assets/images/project/java/rxgo_1.jpg)

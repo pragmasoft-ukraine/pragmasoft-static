@@ -10,16 +10,16 @@ tags:
   - Async Web Requests
 ---
 
-*Technologies:* QR codes scanner, OpenEars, Tesseract for OCR discount cards, REST API, Network Reachability, Async Web Requests.
+*Технології:* QR код сканер, OpenEars, Tesseract для OCR дисконтних карток, REST API, Network Reachability, Async Web Requests.
 
-Project of payment system for iPhone based on QR codes. Project includes 2 parts - client (developed by our team) and server (provided by customer).
+Проект платіжної системи для iPhone, заснований на QR кодах. Проект складається з 2 частин - клієнт (розроблений нашою командою) і сервер (предоставлений замовником).
 
-There is two ways of project usage:
+Є два способи використання проекту:
 
-* As buyer
-* As seller
+* Як покупець
+* Як продавець
 
-To use TrakIT as buyer user should customize his purse and bind credit card or PayPal account. For purchases user should scan QR code and get product information from server, select size, color and other product parameters and pay.
+Щоб використовувати TrakIT як покупець, користувач повинен налаштувати свій гаманець і прив’язати кредитну картку або рахунок PayPal. Для покупок користувач повинен сканувати QR код і отримати інформацію про продукт з сервера, вибрати розмір, колір та інші параметри продукту і оплатити.
 
 ![TRAKIT](~/assets/images/project/mobile/TI1.png)
 ![TRAKIT](~/assets/images/project/mobile/TI2.png)

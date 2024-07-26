@@ -12,15 +12,15 @@ tags:
   - async networking
 ---
 
-*Technologies:* GPS, maps, geocodes, json, restful api, core data, async networking.
+*Технології:* GPS, карти, геокоди, json, restful api, core data, асинхронні мережеві запити.
 
-iPhone application for landmarks sharing. App includes several main features:
+iPhone додаток для обміну інформацією про пам'ятки. Додаток включає кілька основних функцій:
 
-* Check in on visited places
-* Sharing places
-* Posting photos
-* Comments
-* Messages between friends
+* Реєстрація на відвіданих місцях
+* Обмін місцями
+* Публікація фотографій
+* Коментарі
+* Повідомлення між друзями
 
 ![VOYAGES](~/assets/images/project/mobile/v1.png)
 ![VOYAGES](~/assets/images/project/mobile/v2.png)

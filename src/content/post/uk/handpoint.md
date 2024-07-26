@@ -6,9 +6,9 @@ tags:
   - AndroidSDK
 ---
 
-*Technologies:* AndroidSDK.
+*Технології:* AndroidSDK.
 
-The Handpoint mobile POS app enables you to accept debit and credit card payments both chip&pin and magstripe with your smartphone in conjunction with the Handpoint card reader. Our team have developed SDK for Portable Hybrid PINPad MPED-400 for connection via cable connection, bluetooth and bluetooth le. 
+Мобільний POS-додаток Handpoint дозволяє приймати платежі дебетовими та кредитними картками як з чіпом і PIN-кодом, так і з магнітної смужки, використовуючи ваш смартфон разом з кард-рідером Handpoint. Наша команда розробила SDK для Portable Hybrid PINPad MPED-400 для підключення через кабель, Bluetooth і Bluetooth LE.
 
 ![handpoint](~/assets/images/project/java/hp1.png)
 ![handpoint](~/assets/images/project/java/hp2.png)

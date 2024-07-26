@@ -13,10 +13,10 @@ tags:
   - MFC
 ---
 
-*Technologies:* JavaEE, Spring, Hibernate, JavaME, C++, ATL, WTL, MFC.
+*Технології:* JavaEE, Spring, Hibernate, JavaME, C++, ATL, WTL, MFC.
 
-Mobile learning solution uses innovative idea to apply LMS (Learning Management Systems) to mobile platforms. The entire solution consists of learning module designer (Desktop application), which can build self-contained rich learning content applications for a number of mobile platforms (JavaME, Windows Mobile, Pocket PC, Symbian, WAP browsers, Web browsers). Additionally platform contains web server for modules distribution, web/wap modules deployment, result tracking and integration with other learning systems (Blackboard, Moodle).
+Мобільне навчальне рішення використовує інноваційну ідею застосування LMS (систем управління навчанням) до мобільних платформ. Вся система складається з конструктора навчальних модулів (десктоп-додаток), який може створювати самодостатні багаті навчальні контентні додатки для кількох мобільних платформ (JavaME, Windows Mobile, Pocket PC, Symbian, WAP-браузери, веб-браузери). Додатково платформа містить веб-сервер для розподілу модулів, розгортання веб/wap модулів, відстеження результатів та інтеграції з іншими навчальними системами (Blackboard, Moodle).
 
-We are responsible for entire project lifecycle, starting from architectural design, implementation of desktop designer, mobile platform viewers, web server, including documentation, support and maintenance.
+Ми відповідаємо за весь життєвий цикл проекту, починаючи з архітектурного дизайну, реалізації конструктора десктоп-додатка, переглядачів мобільних платформ, веб-сервера, включаючи документацію, підтримку та обслуговування.
 
 ![mobile learning solution](~/assets/images/project/mobile/bb.jpg)

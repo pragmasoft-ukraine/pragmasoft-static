@@ -11,21 +11,19 @@ tags:
   - Cordova
 ---
 
-*Technologies:* JavaEE6 based and uses cloud technologies (AWS, EC2, DynamoDB, S3, CloudFront) for scalability and fault tolerance, as well of set of modern JavaEE APIs - JPA for persistence, EJB3 for business logic, CDI for dependency injection, JAX-RS for RESTful API, JCA connectors to integrate with 3rd party ticketing systems. 
-It uses Jboss AS 6 Appserver and MySQL database for persistent storage.
+*Технології:* JavaEE6, заснований на хмарних технологіях (AWS, EC2, DynamoDB, S3, CloudFront) для масштабованості та відмовостійкості, а також набір сучасних JavaEE API - JPA для зберігання даних, EJB3 для бізнес-логіки, CDI для впровадження залежностей, JAX-RS для RESTful API, JCA конектори для інтеграції з системами продажу квитків третіх сторін. Використовується JBoss AS 6 Appserver та база даних MySQL для зберігання даних.
 
-The purpose of Ticket Gretchen application is to enable european customers to buy tickets for arbitrary events, museums, etc. through one consistent mobile user interface. Ticket Gretchen is now available "here":http://ticketgretchen.com/.
+Мета застосунку Ticket Gretchen - дозволити європейським користувачам купувати квитки на різноманітні заходи, музеї тощо через один єдиний мобільний інтерфейс. Ticket Gretchen тепер доступний "тут":http://ticketgretchen.com/.
 
-The app has three main functional requirements:
+Додаток має три основні функціональні вимоги:
 
-* Comprehensive information about the cultural offerings in a city
-* Consistent and simple ticket shop, regardless where the ticket comes from 
-* Administration of bought tickets, reservations (upcoming and past)
+* Комплексна інформація про культурні пропозиції в місті
+* Узгоджений і простий магазин квитків, незалежно від того, звідки походить квиток 
+* Управління купленими квитками, резервуваннями (майбутніми та минулими)
 
-Server side application is JavaEE6 based and uses cloud technologies (AWS, EC2, DynamoDB, S3, CloudFront) for scalability and fault tolerance, as well of set of modern JavaEE APIs - JPA for persistence, EJB3 for business logic, CDI for dependency injection, JAX-RS for RESTful API, JCA connectors to integrate with 3rd party ticketing systems. 
-It uses Jboss AS 6 Appserver and MySQL database for persistent storage.
+Серверна частина застосунку базується на JavaEE6 і використовує технології хмари (AWS, EC2, DynamoDB, S3, CloudFront) для масштабованості та відмовостійкості, а також набір сучасних JavaEE API - JPA для зберігання даних, EJB3 для бізнес-логіки, CDI для впровадження залежностей, JAX-RS для RESTful API, JCA конектори для інтеграції з системами продажу квитків третіх сторін. Використовується JBoss AS 6 Appserver та база даних MySQL для зберігання даних.
 
-Client side is implemented as Apache Cordova/Phonegap Android and iOS clients, using jQuery Mobile and Backbone.js as UI and MVC frameworks. Special care was taken for multilingual support and security. Oauth2 was used to simplify user's authentication.
+Клієнтська частина реалізована як клієнти Apache Cordova/PhoneGap для Android та iOS, з використанням jQuery Mobile та Backbone.js як UI та MVC фреймворків. Особлива увага була приділена підтримці кількох мов і безпеці. OAuth2 був використаний для спрощення аутентифікації користувачів.
 
 ![Ticket Gretchen](~/assets/images/project/cloud/mtp-1.jpg)
 ![Ticket Gretchen](~/assets/images/project/cloud/mtp-2.jpg)

@@ -14,8 +14,8 @@ tags:
   - Ehcache
 ---
 
-*Technologies:* Java, JavaMail, Spring, Spring-WS, Struts, JDBC, MySQL, Oracle, Ehcache.
+*Технології:* Java, JavaMail, Spring, Spring-WS, Struts, JDBC, MySQL, Oracle, Ehcache.
 
-OpenEMM is an Open Source web-based enterprise application for e-mail and marketing automation.
+OpenEMM - це програмний продукт з відкритим вихідним кодом для автоматизації електронної пошти та маркетингу, що працює через веб-інтерфейс.
 
-The tool enables you to create and send e-mail newsletter and service e-mails (like transaction e-mails and event or date triggered e-mails). Furthermore you can of course control and organize your lead management.
+Інструмент дозволяє створювати та надсилати інформаційні розсилки та сервісні електронні листи (такі як транзакційні електронні листи і електронні листи, що запускаються подіями або датами). Крім того, ви, звичайно, можете контролювати та організовувати управління лідами.
