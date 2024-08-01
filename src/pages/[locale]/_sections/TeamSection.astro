@@ -55,6 +55,7 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'jpg'}
     @apply transition-all duration-700 grayscale hover:grayscale-0 border border-white;
   }
   .item img {
+    content-visibility: visible;
     @apply !aspect-square md:!aspect-auto !object-top;
   }
 </style>
