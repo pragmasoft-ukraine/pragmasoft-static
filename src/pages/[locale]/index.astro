@@ -1,15 +1,10 @@
 ---
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
-import { getImage } from "astro:assets";
 
 import Layout from '~/layouts/PageLayout.astro';
 import Section from './_sections/Section.astro';
 
 import { getStaticPathsHome } from '~/utils/section';
-
-import footer from '~/assets/images/bottom/footer-m.png';
-import footerSm from '~/assets/images/bottom/11m_footer.png';
-import bgGray from '~/assets/images/bg/background.jpg';
 
 export const getStaticPaths = (async () => {
   return await getStaticPathsHome();
@@ -20,10 +15,6 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { locale, sections } = Astro.props as Props;
 
 const sectionMap = Object.fromEntries(sections.map(section => ([section.slug.replace(locale + '/', ''), section])));
-
-const optimizedBackground = await getImage({src: bgGray, format: 'jpg'});
-const optimizedBackgroundColors = await getImage({src: footer, format: 'png'});
-const optimizedBackgroundColorsSm = await getImage({src: footerSm, format: 'png'});
 ---
 
 <Layout metadata={{
@@ -39,14 +30,5 @@ const optimizedBackgroundColorsSm = await getImage({src: footerSm, format: 'png'
   </div>
   {sectionMap["ukraine"] && <Section id="ukraine" section={sectionMap["ukraine"]}/>}
   {sectionMap["team"] && <Section id="team" section={sectionMap["team"]}/>}
-  <div class="[background:var(--pragma-team-bg)_top_center_scroll_repeat] w-full h-full"
-    style={`--pragma-team-bg:url(${optimizedBackground.src})`}>
-    {sectionMap["quality"] && <Section id="quality" section={sectionMap["quality"]}/>}
-    <div class="[background:var(--pragma-bottom-bg-sm)_bottom_center_no-repeat] sm:[background:var(--pragma-bottom-bg)_bottom_center_repeat-x] w-full h-[60px] sm:h-[300px]"
-      style={`--pragma-bottom-bg:url(${optimizedBackgroundColors.src}); --pragma-bottom-bg-sm:url(${optimizedBackgroundColorsSm.src});`}>
-      <div class="hidden sm:block relative w-[680px] mx-auto bottom-[-210px] leading-[36px] font-thin uppercase italic text-[34px] text-white">When ideas<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;turn into real<span class="font-normal">it</span>y
-      </div>
-    </div>
-  </div>
+  {sectionMap["quality"] && <Section id="quality" section={sectionMap["quality"]}/>}
 </Layout>
