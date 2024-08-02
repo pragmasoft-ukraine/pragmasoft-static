@@ -47,7 +47,8 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'jpg'}
 <style>
   .photo-container {
     --photo-width: 220px;
-    @apply grid grid-cols-[repeat(2,minmax(0,var(--photo-width)))] gap-0.5 w-fit mx-auto;
+    @apply flex flex-wrap place-content-center;
+    @apply md:grid grid-cols-[repeat(2,minmax(0,var(--photo-width)))] gap-0.5 w-fit mx-auto;
     @apply md:grid-cols-[repeat(3,minmax(0,var(--photo-width)))];
     @apply lg:grid-cols-[repeat(4,minmax(0,var(--photo-width)))];
   }
