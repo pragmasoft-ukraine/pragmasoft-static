@@ -54,6 +54,7 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'jpg'}
   }
   .item {
     @apply transition-all duration-700 grayscale hover:grayscale-0 border border-white;
+    @apply max-w-[var(--photo-width)] md:max-w-full;
   }
   .item img {
     content-visibility: visible;
