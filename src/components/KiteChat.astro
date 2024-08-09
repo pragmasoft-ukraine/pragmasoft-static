@@ -14,14 +14,10 @@ const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslatio
   }
   loadModules().then(({ KiteChat }) => {
     const baseEndpoint = "wss://ws.k1te.chat/prod";
-    const defaultChannel = "pragmasoft";
+    const channel = "pragmasoft";
 
-    const channelParam = new URLSearchParams(window.location.search).get('c');
+    const endpoint = `${baseEndpoint}?c=${encodeURIComponent(channel)}`;
 
-    const endpoint = `${baseEndpoint}?c=${encodeURIComponent(channelParam || defaultChannel)}`;
-
-    console.log('endpoint', endpoint);
-    
     const kiteChat = new KiteChat({endpoint});
     addEventListener('beforeunload', () => kiteChat.disconnect());
   });
