@@ -1,5 +1,4 @@
 ---
-import { UI } from 'astrowind:config';
 import { useTranslations } from '~/i18n/utils';
 
 const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
@@ -34,6 +33,6 @@ const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslatio
   }
 </style>
 
-<kite-chat heading={t("kite.heading")} theme={UI.defaultTheme}>
+<kite-chat heading={t("kite.heading")} theme="light">
   <kite-msg>{t("kite.helloMsg")}</kite-msg>
 </kite-chat>
