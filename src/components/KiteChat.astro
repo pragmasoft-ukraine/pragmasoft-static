@@ -1,0 +1,39 @@
+---
+import { UI } from 'astrowind:config';
+import { useTranslations } from '~/i18n/utils';
+
+const t = useTranslations(Astro.currentLocale as Parameters<typeof useTranslations>[0]);
+---
+
+<script is:inline>
+  async function loadModules() {
+    try {
+      return await import("https://unpkg.com/@pragmasoft-ukraine/kite-chat/dist/kite-chat.js");
+    } catch (error) {
+      console.error('Error loading modules:', error);
+    }
+  }
+  loadModules().then(({ KiteChat }) => {
+    const baseEndpoint = "wss://ws.k1te.chat/prod";
+    const defaultChannel = "pragmasoft";
+
+    const channelParam = new URLSearchParams(window.location.search).get('c');
+
+    const endpoint = `${baseEndpoint}?c=${encodeURIComponent(channelParam || defaultChannel)}`;
+
+    console.log('endpoint', endpoint);
+    
+    const kiteChat = new KiteChat({endpoint});
+    addEventListener('beforeunload', () => kiteChat.disconnect());
+  });
+</script>
+
+<style is:inline>
+  :root {
+    --kite-primary-color: #464646;
+  }
+</style>
+
+<kite-chat heading={t("kite.heading")} theme={UI.defaultTheme}>
+  <kite-msg>{t("kite.helloMsg")}</kite-msg>
+</kite-chat>

@@ -36,6 +36,9 @@ export const ui = {
     'link.projects.back': 'Back to Projects',
 
     'social.share': 'Share',
+
+    'kite.helloMsg': 'Welcome to Pragmasoft!',
+    'kite.heading': '👩🏻Humane support 💙💛',
   },
   uk: {
     'nav.about': 'Про нас',
@@ -67,5 +70,8 @@ export const ui = {
     'link.projects.back': 'Назад до Проєктів',
 
     'social.share': 'Поділитися',
+
+    'kite.helloMsg': 'Вітаємо в Прагмасофт!',
+    'kite.heading': '👩🏻Служба підтримки 💙💛',
   },
 } as const;
