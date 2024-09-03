@@ -181,7 +181,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
 </header>
 
 <nav
-  class="relative bg-[#464646] pb-[4px] mobile-nav items-center w-full md:w-auto md:mx-5 text-[#999] font-secondary uppercase overflow-y-auto overflow-x-hidden md:overflow-visible md:justify-self-center"
+  class="relative bg-[#464646] pb-[4px] mobile-nav closed items-center w-full md:w-auto md:mx-5 text-[#999] font-secondary uppercase overflow-y-auto overflow-x-hidden md:overflow-visible md:justify-self-center"
   aria-label="Mobile navigation"
   data-aw-click-menu
 >
@@ -221,5 +221,6 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
   }
   .mobile-nav.closed {
     max-height: 0;
+    padding: 0;
   }
 </style>
