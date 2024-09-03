@@ -10,19 +10,24 @@ export interface Props {
 const {
   label = 'Select language',
   class:
-    className = 'uppercase text-muted bg-inherit dark:text-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+    className = 'uppercase hover:text-link dark:hover:text-white px-4 py-3 flex items-center',
 } = Astro.props;
 ---
 
 {
-  <select class={className} aria-label={label} data-select-locale>
+  <div class={className} aria-label={label}>
     {Object.entries(languages).map(([lang, label]) => (
-      <option value={lang} aria-label={label} title={label} selected={lang===Astro.currentLocale}>{lang}</option>
-    ))}
-  </select>
-  <div class="hidden">
-    {Object.entries(languages).map(([lang, _]) => (
-      <a data-switch-locale={lang} href={replacePermalinkLocale(Astro.url.pathname, lang)}></a>
+      <a href={replacePermalinkLocale(Astro.url.pathname, lang)} title={label}
+        class:list={[
+          { 'active': lang === Astro.currentLocale },
+        ]}
+      >{lang}</a>
     ))}
   </div>
 }
+
+<style>
+  .active {
+    @apply text-white;
+  }
+</style>
