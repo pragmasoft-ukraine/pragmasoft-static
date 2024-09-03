@@ -86,23 +86,23 @@ import { UI } from 'astrowind:config';
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('bg-page');
-      document.querySelector('nav.mobile-nav')?.classList.add('hidden');
+      document.querySelector('nav.mobile-nav')?.classList.add('closed');
     });
 
     attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
       elem.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('bg-page');
-      document.querySelector('nav.mobile-nav')?.classList.toggle('hidden');
-      document.querySelector('nav.mobile-nav:not(hidden)')?.scrollIntoView(false);
+      document.querySelector('nav.mobile-nav')?.classList.toggle('closed');
+      document.querySelector('nav.mobile-nav:not(.closed)')?.scrollIntoView(false);
     });
 
     attachEvent('[data-aw-click-menu]', 'click', function (_, _) {
       document.querySelector('[data-aw-toggle-menu]')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('expanded');
       document.getElementById('header')?.classList.toggle('bg-page');
-      document.querySelector('nav.mobile-nav')?.classList.toggle('hidden');
-      document.querySelector('nav.mobile-nav:not(hidden)')?.scrollIntoView(false);
+      document.querySelector('nav.mobile-nav')?.classList.toggle('closed');
+      document.querySelector('nav.mobile-nav:not(closed)')?.scrollIntoView(false);
     });
 
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
@@ -151,7 +151,7 @@ import { UI } from 'astrowind:config';
       document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('expanded');
       document.getElementById('header')?.classList.remove('bg-page');
-      document.querySelector('nav.mobile-nav')?.classList.add('hidden');
+      document.querySelector('nav.mobile-nav')?.classList.add('closed');
     });
 
     function applyHeaderStylesOnScroll() {
@@ -186,7 +186,7 @@ import { UI } from 'astrowind:config';
       elem.classList.remove('expanded');
     }
     document.getElementById('header')?.classList.remove('expanded');
-    document.querySelector('nav.mobile-nav')?.classList.add('hidden');
+    document.querySelector('nav.mobile-nav')?.classList.add('closed');
   };
 
   window.onload = onLoad;
