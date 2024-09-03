@@ -97,6 +97,14 @@ import { UI } from 'astrowind:config';
       document.querySelector('nav.mobile-nav:not(hidden)')?.scrollIntoView(false);
     });
 
+    attachEvent('[data-aw-click-menu]', 'click', function (_, _) {
+      document.querySelector('[data-aw-toggle-menu]')?.classList.toggle('expanded');
+      document.getElementById('header')?.classList.toggle('expanded');
+      document.getElementById('header')?.classList.toggle('bg-page');
+      document.querySelector('nav.mobile-nav')?.classList.toggle('hidden');
+      document.querySelector('nav.mobile-nav:not(hidden)')?.scrollIntoView(false);
+    });
+
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
         return;
