@@ -56,17 +56,25 @@ import { UI } from 'astrowind:config';
 
         const isActive = isVisible && intersection > 0;
 
+        const menu = document.querySelector(`.main-nav`);
+        let currentOffset = 0;
+        let currentWidth = 0;
+
         if (isActive && section.id !== currentActiveSection) {
           const matchingLink = document.querySelector(`a[href$="#${section.id}"]`);
           if (matchingLink) {
             matchingLink.parentElement.classList.toggle('active', true);
+            currentOffset = matchingLink.parentElement.offsetLeft;
+            currentWidth = matchingLink.parentElement.offsetWidth;
+          } else {
+            currentWidth = 0;
           }
           if (currentActiveSection) {
             const prevLink = document.querySelector(`a[href$="#${currentActiveSection}"]`);
-            if (prevLink) {
-              prevLink.parentElement.classList.remove('active');
-            }
+            prevLink?.parentElement.classList.remove('active');
           }
+          menu?.style.setProperty('--underline-width', `${currentWidth}px`);
+          menu?.style.setProperty('--underline-offset-x', `${currentOffset}px`);
           currentActiveSection = section.id;
         }
       }
