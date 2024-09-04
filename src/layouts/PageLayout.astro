@@ -40,7 +40,7 @@ const optimizedBackgroundColorsSm = await getImage({src: footerImgSm, format: 'p
     <slot />
     <div class="[background:var(--pragma-bottom-bg-sm)_bottom_center_no-repeat] sm:[background:var(--pragma-bottom-bg)_bottom_center_repeat-x] w-full h-[60px] sm:h-[300px]"
       style={`--pragma-bottom-bg:url(${optimizedBackgroundColors.src}); --pragma-bottom-bg-sm:url(${optimizedBackgroundColorsSm.src});`}>
-      <div class="hidden sm:block relative w-[680px] mx-auto bottom-[-210px] leading-[36px] font-thin uppercase italic text-[34px] text-white">When ideas<br />
+      <div class="hidden sm:block relative max-w-[680px] mx-auto bottom-[-210px] leading-[36px] font-thin uppercase italic text-[34px] text-white">When ideas<br />
         &nbsp;&nbsp;&nbsp;&nbsp;turn into real<span class="font-normal">it</span>y
       </div>
     </div>
