@@ -4,7 +4,7 @@ backend:
   name: github
   repo: pragmasoft-ukraine/pragmasoft-static
   branch: master
-  base_url: https://pragmasoft-static.pages.dev
+  base_url: https://pragmasoft.com.ua
   auth_endpoint: /api/auth
 
 media_folder: 'src/assets/images'
