@@ -26,6 +26,7 @@ export const headerData = (locale) => {
       {
         text: t("nav.jobs"),
         href: 'https://djinni.co/jobs/?company=pragmasoft-fde72',
+        external: true,
       },
     ],
     // actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],

@@ -22,7 +22,7 @@ const variants = {
   'blue': '#00B0F3',
 }
 const color = variant !== 'custom' ? variants[variant] : '';
-const text = variant === 'sky' || variant === 'orange' ? 'text-muted' : 'text-white';
+const text = variant === 'sky' || variant === 'orange' ? 'text-secondary' : 'text-white';
 
 const projects = await getProjectFeatures(section.slug);
 ---
@@ -40,7 +40,7 @@ const projects = await getProjectFeatures(section.slug);
       },
     }}
     columns={4}
-    items={[...projects, ...(section.defaultItem ? [section.defaultItem] : [])]}
+    items={[...projects, ...(section.defaultItem ? [{...section.defaultItem, classes: {panel: "openKiteChatOnClick"}}] : [])]}
     >
     <Fragment slot="subtitle">
       <div class="hidden md:block font-light">

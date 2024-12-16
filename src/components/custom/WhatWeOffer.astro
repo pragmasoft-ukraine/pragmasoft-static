@@ -25,10 +25,10 @@ const {
 const [offers1, offers2] = offers;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto text-[18px] leading-tight font-light overflow-hidden ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} classes={{title: "font-secondary text-secondary font-light text-5xl"}}/>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto leading-tight font-light overflow-hidden ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} classes={{title: "font-secondary text-secondary font-light text-[40px]"}}/>
   <div class="hidden md:flex flex-col max-w-[856px] mx-auto ">
-    <div class="relative flex flex-row place-content-between text-center uppercase">
+    <div class="relative flex flex-row place-content-between text-center uppercase text-[18px]">
       <div class="relative w-[48%] mb-[50px] bg-page shadow-md">
         <div class="flex flex-col my-[28px] mr-[20px] ml-[140px]">
           {
@@ -61,7 +61,7 @@ const [offers1, offers2] = offers;
       <div class="absolute block bottom-[45px] right-[-150px]"><Image src={paperBird}  alt="Paper bird"/></div>
     </div>
   </div>   
-  <div class="md:hidden flex flex-col items-center w-full px-[60px] text-center uppercase">
+  <div class="md:hidden flex flex-col items-center w-full px-[60px] text-center uppercase text-[21px]">
     {
       [...offers1, ...offers2].map((offer, index) => (
         offer && (

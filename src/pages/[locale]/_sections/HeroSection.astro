@@ -5,10 +5,8 @@ import Hero2 from '~/components/widgets/Hero.astro';
 import Testimonials2 from '~/components/widgets/Testimonials2.astro';
 import type { HeroSection } from '~/types';
 
-import backgroundWhite from '~/assets/images/bg/background.jpg';
 import backgroundColor from '~/assets/images/hero/top-calor-tr3.png';
 
-const optimizedBackgroundWhite = await getImage({src: backgroundWhite, format: 'jpg'});
 const optimizedBackgroundColor = await getImage({src: backgroundColor, format: 'png'});
 
 type Props = {
@@ -24,8 +22,7 @@ const {
 
 <Hero2 id={id} classes={{content: "!p-0 !pt-[76px] lg:!pb-20"}}>
   <Fragment slot="bg">
-    <div class="absolute inset-0 flex md:pt-[76px] [background:var(--pragma-hero-bg-white)_top_center_scroll_repeat]" 
-      style={`--pragma-hero-bg-white: url(${optimizedBackgroundWhite.src});`}>
+    <div class="absolute inset-0 flex md:pt-[76px]">
       <div class="relative flex w-full items-center lg:items-start px-[15px] lg:[background:var(--pragma-hero-bg-colors)_top_center_scroll_no-repeat]" 
         style={`--pragma-hero-bg-colors: url(${optimizedBackgroundColor.src});`}
       >

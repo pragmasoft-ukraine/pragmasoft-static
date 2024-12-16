@@ -18,6 +18,7 @@ interface Link {
   href?: string;
   ariaLabel?: string;
   icon?: string;
+  external?: boolean;
 }
 
 interface ActionLink extends CallToAction {}
@@ -58,19 +59,20 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
     'top-0 z-40 flex-none mx-auto w-full border-none transition-[opacity] ease-in-out',
-    'after:absolute after:-z-10 after:w-full after:hidden after:sm:block after:h-[16px] after:[background:var(--pragma-header-bg)_top_center_scroll_repeat]',
+    'after:absolute after:-z-10 after:w-full after:hidden after:md:block after:h-[16px] after:[background:var(--pragma-header-bg)_top_center_scroll_repeat]',
+    '[border-bottom:1px_solid_#2abb9b] md:border-none'
   ]}
   style={`--pragma-header-bg: url(${optimizedBackground.src});`}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
   <div class:list={[
-    'absolute inset-0 bg-page md:bg-white/90 md:backdrop-blur-md [box-shadow:0_0.375rem_1.5rem_0_rgb(140_152_164/13%)]',
+    'absolute inset-0 bg-[#464646] md:backdrop-blur-md [box-shadow:0_0.375rem_1.5rem_0_rgb(140_152_164/13%)]',
     'md:dark:bg-[#030621e6] dark:border-b dark:border-gray-500/20 dark:[box-shadow:none]'
   ]}></div>
   <div
     class:list={[
-      'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
+      'relative text-default mx-auto w-full',
       {
         'md:flex md:justify-between': position !== 'center',
       },
@@ -78,27 +80,27 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
         'md:grid md:grid-cols-3 md:items-center': position === 'center',
       },
       {
-        'max-w-7xl': !isFullWidth,
+        'max-w-[970px]': !isFullWidth,
       },
     ]}
   >
-    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink(Astro.currentLocale)}>
+    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'min-h-[50px]', 'flex justify-between flex-row-reverse md:flex-row']}>
+      <a class="flex items-center ml-2 rtl:ml-0 rtl:mr-2" href={getHomePermalink(Astro.currentLocale)}>
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
-        <ToggleMenu />
+        <ToggleMenu class="flex flex-col h-10 w-10 sm:h-12 sm:w-12 rounded justify-center items-center cursor-pointer group *:bg-white"/>
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default font-secondary uppercase overflow-y-auto overflow-x-hidden md:overflow-visible md:justify-self-center"
+      class="main-nav items-center w-full md:w-auto hidden md:flex md:mx-5 text-[#999] font-secondary uppercase overflow-y-auto overflow-x-hidden md:overflow-visible md:justify-self-center"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col text-nowrap md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+        class="flex flex-col text-nowrap md:flex-row md:self-center w-full md:w-auto text-xl md:text-[1rem] leading-[20px] tracking-[0.01rem] font-normal md:justify-center"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, href, links, external }) => (
             <li class={`relative ${links?.length ? 'dropdown' : ''}`}>
               {links?.length ? (
                 <>
@@ -106,8 +108,8 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-normal md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                    {links.map(({ text: text2, href: href2, external: external2 }) => (
                       <li>
                         <a
                           class:list={[
@@ -117,6 +119,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
                           href={href2}
                         >
                           {text2}
+                          {external2 && <Icon name="tabler:external-link" class="ml-1 w-5 h-5" />}
                         </a>
                       </li>
                     ))}
@@ -125,12 +128,13 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
               ) : (
                 <a
                   class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center',
+                    'hover:text-link dark:hover:text-white p-[17px_8px_18px_8px] flex items-center border-none',
                     { 'aw-link-active': href === currentPath },
                   ]}
                   href={href}
                 >
                   {text}
+                  {external && <Icon name="tabler:external-link" class="ml-1 w-5 h-5" />}
                 </a>
               )}
             </li>
@@ -150,7 +154,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
           {
             showRssFeed && (
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="text-[#999] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >
@@ -158,7 +162,10 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
               </a>
             )
           }
-          <SelectLocale/>
+          <SelectLocale class:list={[
+            "mr-2 rtl:mr-0 rtl:ml-2 font-secondary text-[#999] text-[1rem] uppercase hover:text-link dark:hover:text-white flex items-center",
+            "*:p-[17px_8px_13px_8px]"
+          ]}/>
         </div>
         {
           actions?.length ? (
@@ -176,9 +183,69 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
   </div>
 </header>
 
+<nav
+  class="relative bg-[#464646] pb-[4px] mobile-nav closed items-center w-full md:w-auto md:mx-5 text-[#999] font-secondary uppercase overflow-y-auto overflow-x-hidden md:overflow-visible md:justify-self-center"
+  aria-label="Mobile navigation"
+  data-aw-click-menu
+>
+  <ul
+    class="bg-[#5a5a5a] flex flex-col text-nowrap md:flex-row md:self-center w-full md:w-auto text-xl md:text-[1rem] leading-[20px] tracking-[0.01rem] font-normal md:justify-center"
+  >
+    {
+      links.map(({ text, href, links, external }) => (
+        <li class={`relative ${links?.length ? 'dropdown' : ''}`}>
+          <a
+            class:list={[
+              'hover:text-link dark:hover:text-white p-[17px_8px_13px_8px] flex items-center [border-bottom:1px_solid_#747474]',
+              { 'aw-link-active': href === currentPath },
+            ]}
+            href={href}
+          >
+            {text}
+            {external && <Icon name="tabler:external-link" class="ml-1 w-5 h-5" />}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <SelectLocale class:list={[
+    "font-secondary text-[#999] leading-[20px] text-xl uppercase hover:text-link dark:hover:text-white flex items-center",
+    "absolute right-0 top-0 *:p-[17px_20px_13px] *:[border-left:1px_solid_#747474]"
+  ]}/>
+</nav>
+
 <style>
+  .main-nav {
+    --underline-width: 0;
+    --underline-offset-x: 0;
+    @apply relative;
+
+    @apply after:hidden md:after:block after:absolute;
+    @apply after:inset-x-0 after:bottom-[2px] after:h-[5px] after:bg-[#2abb9b];
+    @apply after:w-[var(--underline-width)];
+    @apply after:[transform:translateX(var(--underline-offset-x))];
+    @apply after:[transition:transform_0.5s,width_0.5s];
+
+  }
+  .main-nav a {
+    @apply [transition:color_0.5s];
+  }
+  nav a:hover {
+    @apply text-white [transition:none] after:block after:absolute after:inset-x-0 after:bottom-[2px] after:h-[5px] after:bg-[#2abb9b];
+  }
+  .mobile-nav a:hover {
+    @apply after:-bottom-[4px] after:z-10;
+  }
   .active {
-    @apply after:hidden md:after:block after:absolute after:inset-x-0 after:-bottom-[12px] after:h-[5px] after:bg-[#2abb9b];
-    @apply lg:after:-bottom-[15px] after:h-[8px] after:bg-[#2abb9b];
+    @apply text-white;
+  }
+  .mobile-nav {
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    max-height: 100vh;
+  }
+  .mobile-nav.closed {
+    max-height: 0;
+    padding: 0;
   }
 </style>
