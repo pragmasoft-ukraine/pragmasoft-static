@@ -24,7 +24,7 @@ Verisk Analytics is a leading data analytics provider serving customers in insur
 
 Analyze Re is part of AIR Worldwide and Verisk Analytics, which provides a software analytics suite designed for the reinsurance and insurance industries. In addition to predictive analytics for strategic planning, Analyze Re technology helps organizations make faster and more accurate pricing and portfolio decisions.
 
-Matisse was built by the Analyze Re team along with Pragmasoft contractors to improve the experience of reinsurance underwriting by providing intuitive risk metrics that are easily incorporated into your own personal view of risk. With its customizable, canvas-based UI, it can streamline reinsurance and retrocession pricing, facilitate intelligent portfolio management, and simplify structuring workflows
+Matisse was built by the Analyze Re team along with Pragmasoft contractors to improve the experience of reinsurance underwriting by providing intuitive risk metrics that are easily incorporated into your own personal view of risk. With its customizable, canvas-based UI, it can streamline reinsurance and retrocession pricing, facilitate intelligent portfolio management, and simplify structuring workflows.
 
 With Matisse you can:
 
