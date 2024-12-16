@@ -16,7 +16,7 @@ metadata:
   keywords: Pragmasoft, web design, Verisk, AIR Worldwide, reinsurance solutions
 ---
 
-*Technologies:* Angular, D3, JSON Forms, Material UI, Karma
+*Технології:* Angular, D3, JSON Forms, Material UI, Karma
 
 AIR Worldwide (AIR) надає рішення для моделювання ризиків катастроф, які допомагають окремим людям, бізнесу та суспільству ставати більш стійкими. AIR Worldwide, підрозділ Verisk Analytics, має штаб-квартиру в Бостоні, а також додаткові офіси в Північній Америці, Європі та Азії.
 
