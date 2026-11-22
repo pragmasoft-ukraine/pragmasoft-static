@@ -1,41 +1,56 @@
-name: Deploy to GitHub Pages
+# Build the site and deploy it to Cloudflare Pages (Direct Upload).
+#
+# - push to master            -> production deployment
+# - pull request / other push -> preview deployment on <branch>.<project>.pages.dev
+#
+# One-time setup (repository settings -> Secrets and variables -> Actions):
+#   secret   CLOUDFLARE_API_TOKEN          API token with "Cloudflare Pages: Edit"
+#   secret   CLOUDFLARE_ACCOUNT_ID         Cloudflare account id
+#   variable CLOUDFLARE_PAGES_PROJECT      Pages project name
+# The Decap CMS login (functions/api) also needs GITHUB_CLIENT_ID and
+# GITHUB_CLIENT_SECRET set as environment variables on the Pages project itself.
+name: Deploy to Cloudflare Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
-  # push:
-  #   branches: [master]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  push:
+    branches: [master]
+  pull_request:
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  deployments: write
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      - name: Install, build, and upload your site output
-        uses: withastro/action@v2
-        with:
-          node-version: 24
-        # with:
-            # path: . # The root location of your Astro project inside the repository. (optional)
-            # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
-            # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-
   deploy:
-    needs: build
+    # Secrets are not available to pull requests from forks
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Run from the repo root so wrangler also bundles ./functions
+          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref || github.ref_name }}
