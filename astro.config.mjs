@@ -1,7 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -50,7 +50,10 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      // Skip the root redirect page (/), which was never listed
+      filter: (page) => new URL(page).pathname !== '/',
+    }),
     mdx(),
     icon({
       include: {
@@ -97,7 +100,6 @@ export default defineConfig({
   ],
 
   image: {
-    service: squooshImageService(),
     domains: ['cdn.pixabay.com'],
   },
 
