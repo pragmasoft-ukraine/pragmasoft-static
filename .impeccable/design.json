@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T20:52:04.330057+00:00",
+  "title": "Design System: Pragmasoft",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Paper Mint",
+        "canonical": "#30cbab",
+        "oklch": "oklch(76% 0.133 175)",
+        "tonalRamp": [
+          "#001409",
+          "#003723",
+          "#005d43",
+          "#008064",
+          "#00a587",
+          "#32ccac",
+          "#8ae6cd",
+          "#d4f8ed"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Deep Mint",
+        "canonical": "#19a485",
+        "oklch": "oklch(64% 0.119 172)",
+        "tonalRamp": [
+          "#001308",
+          "#003520",
+          "#005b40",
+          "#007e61",
+          "#17a384",
+          "#4fcaa9",
+          "#94e4cb",
+          "#d7f7ec"
+        ]
+      },
+      "charcoal": {
+        "role": "secondary",
+        "displayName": "Charcoal",
+        "canonical": "#464646",
+        "oklch": "oklch(39% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#484848",
+          "#696969",
+          "#8c8c8c",
+          "#b1b1b1",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "band-sky": {
+        "role": "tertiary",
+        "displayName": "Sky Paper",
+        "canonical": "#81cddb",
+        "oklch": "oklch(80% 0.078 210)",
+        "tonalRamp": [
+          "#001016",
+          "#002f3a",
+          "#00525f",
+          "#247582",
+          "#4d99a7",
+          "#73bfcd",
+          "#a7dce6",
+          "#def3f7"
+        ]
+      },
+      "band-orange": {
+        "role": "tertiary",
+        "displayName": "Marigold",
+        "canonical": "#ffb700",
+        "oklch": "oklch(83% 0.171 80)",
+        "tonalRamp": [
+          "#1f0100",
+          "#4b0f00",
+          "#753400",
+          "#9a5800",
+          "#c17c00",
+          "#e9a200",
+          "#fbc86e",
+          "#ffebc8"
+        ]
+      },
+      "band-red": {
+        "role": "tertiary",
+        "displayName": "Poster Red",
+        "canonical": "#e2371b",
+        "oklch": "oklch(60% 0.211 32)",
+        "tonalRamp": [
+          "#2f0000",
+          "#680000",
+          "#9a0000",
+          "#c50c00",
+          "#f1472b",
+          "#ff7154",
+          "#ffa991",
+          "#ffe0d4"
+        ]
+      },
+      "band-blue": {
+        "role": "tertiary",
+        "displayName": "Cyan Blue",
+        "canonical": "#00b0f3",
+        "oklch": "oklch(71% 0.151 235)",
+        "tonalRamp": [
+          "#000c2b",
+          "#00295f",
+          "#004f8c",
+          "#0073b2",
+          "#0098da",
+          "#2abfff",
+          "#86ddff",
+          "#d2f4ff"
+        ]
+      },
+      "band-slate": {
+        "role": "tertiary",
+        "displayName": "Slate",
+        "canonical": "#485365",
+        "oklch": "oklch(44% 0.033 260)",
+        "tonalRamp": [
+          "#070b14",
+          "#1e2735",
+          "#3d485a",
+          "#5e6a7c",
+          "#818da1",
+          "#a5b2c7",
+          "#c8d2e1",
+          "#ebeff5"
+        ]
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Night",
+        "canonical": "#030620",
+        "oklch": "oklch(14% 0.056 270)",
+        "tonalRamp": [
+          "#060a19",
+          "#1c2540",
+          "#3b4666",
+          "#5c688a",
+          "#7e8baf",
+          "#a3b0d6",
+          "#c6d0ed",
+          "#eaeefa"
+        ]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Page White",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#484848",
+          "#696969",
+          "#8c8c8c",
+          "#b1b1b1",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "ink-body": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#101010",
+        "oklch": "oklch(17% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#484848",
+          "#696969",
+          "#8c8c8c",
+          "#b1b1b1",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Grey",
+        "canonical": "#777777",
+        "oklch": "oklch(57% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#484848",
+          "#696969",
+          "#8c8c8c",
+          "#b1b1b1",
+          "#d1d1d1",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section headlines."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Large numerals in the stats band."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Section copy."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, uppercase."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Button labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1)",
+        "purpose": "Offer cards."
+      },
+      {
+        "name": "header",
+        "value": "0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%)",
+        "purpose": "Header bar, light mode."
+      },
+      {
+        "name": "dropdown",
+        "value": "drop-shadow-xl",
+        "purpose": "Nav sub-menus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-transition",
+        "value": "all 200ms ease-in",
+        "purpose": "Button state changes."
+      },
+      {
+        "name": "slogan-slide",
+        "value": "transform 1000ms",
+        "purpose": "Hero slogan slides in on page load."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Mint pill; charcoal on hover. Incumbent white text fails AA (2.05:1).",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Contact us</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;border:1px solid;font:500 16px/1.375 Roboto,ui-sans-serif,sans-serif;padding:14px 32px;cursor:pointer;transition:all .2s ease-in}.ds-btn-primary{background:#30cbab;border-color:#30cbab;color:#fff;font-weight:600}.ds-btn-primary:hover{background:#464646;border-color:#464646}.ds-btn-primary:focus-visible{outline:2px solid #3b82f6;outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined pill for secondary actions.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\">Read more</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;border:1px solid;font:500 16px/1.375 Roboto,ui-sans-serif,sans-serif;padding:14px 32px;cursor:pointer;transition:all .2s ease-in}.ds-btn-secondary{background:transparent;border-color:#9ca3af;color:#101010}.ds-btn-secondary:hover{background:#f3f4f6;border-color:#4b5563}.ds-btn-secondary:focus-visible{outline:2px solid #3b82f6;outline-offset:2px}"
+    },
+    {
+      "name": "Tertiary Button",
+      "kind": "button",
+      "refersTo": "button-tertiary",
+      "description": "Borderless muted text button.",
+      "html": "<button class=\"ds-btn ds-btn-tertiary\">Learn more</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;border:1px solid;font:500 16px/1.375 Roboto,ui-sans-serif,sans-serif;padding:14px 32px;cursor:pointer;transition:all .2s ease-in}.ds-btn-tertiary{background:transparent;border-color:transparent;color:#777;font-weight:500}.ds-btn-tertiary:hover{color:#111827}.ds-btn-tertiary:focus-visible{outline:2px solid #3b82f6;outline-offset:2px}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Soft 8px field with a thin grey border.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Name</label><input class=\"ds-input\" id=\"ds-name\" placeholder=\"Your name\">",
+      "css": ".ds-label{display:block;font:500 14px Roboto,sans-serif;margin-bottom:4px;color:#101010}.ds-input{display:block;width:100%;box-sizing:border-box;padding:12px 16px;font:400 16px Roboto,sans-serif;border:1px solid #e5e7eb;border-radius:8px;background:#fff;color:#101010}.ds-input:focus-visible{outline:2px solid #3b82f6;outline-offset:1px}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Charcoal bar with condensed uppercase links.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Services</a><a class=\"ds-nav-link\" href=\"#\">Projects</a><a class=\"ds-nav-link\" href=\"#\">Team</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;justify-content:center;background:#464646;padding:0 8px}.ds-nav-link{font:400 16px/20px 'Ubuntu Condensed',sans-serif;letter-spacing:.01rem;text-transform:uppercase;color:#999;text-decoration:none;padding:17px 8px 18px}.ds-nav-link:hover{color:#fff}.ds-nav-link:focus-visible{outline:2px solid #3b82f6;outline-offset:-2px;color:#fff}"
+    },
+    {
+      "name": "Offer Card",
+      "kind": "card",
+      "refersTo": "offer-card",
+      "description": "White square card, uppercase lines split by mint rules, on a mint band.",
+      "html": "<div class=\"ds-band\"><div class=\"ds-offer\"><span>Cutting-edge technologies</span><hr><span>Exceptional quality</span><hr><span>Wide range of services</span></div></div>",
+      "css": ".ds-band{background:#31cbaa;padding:24px}.ds-offer{background:#fff;box-shadow:0 4px 6px -1px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.1);padding:28px 20px;font:300 18px/1.25 Roboto,sans-serif;text-transform:uppercase;color:#101010;max-width:360px}.ds-offer hr{border:0;border-top:1px solid #24ac8f;margin:12px 0}"
+    },
+    {
+      "name": "Section Band",
+      "kind": "custom",
+      "refersTo": "band-sky",
+      "description": "Signature: a flat colour band with a light condensed headline.",
+      "html": "<section class=\"ds-section\"><h2>Mobile App<br>Development</h2><p>One flat colour per band; text colour chosen for contrast.</p></section>",
+      "css": ".ds-section{background:#81cddb;color:#464646;padding:40px 32px;text-align:center}.ds-section h2{font:300 40px/1 'Ubuntu Condensed',sans-serif;margin:0 0 16px}.ds-section p{font:300 18px/1.25 Roboto,sans-serif;margin:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Paper Workshop",
+    "overview": "The site reads as a stack of flat, saturated paper sheets, each holding one section of the story, with hand-built paper creatures and parallax paper-cut scenery on top. The type is quiet and light so the colour and the paper imagery carry the personality.",
+    "keyCharacteristics": [
+      "One flat colour band per section; the band colour is the section's identity.",
+      "Light-weight type (Roboto 300) at generous size; condensed uppercase for navigation.",
+      "Pill-shaped buttons; soft 8px inputs.",
+      "Papercraft illustration and parallax layers carry decoration.",
+      "Light and dark modes both exist; the dark page is a deep navy."
+    ],
+    "rules": [
+      {
+        "name": "The One Band, One Colour Rule",
+        "body": "Each section owns exactly one band colour and never splits it with a second saturated colour. Text colour is chosen for that band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mint Is Not A Text Colour Rule",
+        "body": "Mint on white is 2.05:1 and Deep Mint on white is 3.14:1. Use them for fills, rules and large icons.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Weight Rule",
+        "body": "Body and display text default to weight 300.",
+        "section": "typography"
+      },
+      {
+        "name": "The Unloaded Weight Rule",
+        "body": "Only 100, 300 and 400 are loaded; weights 500 and 600 are synthesised.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat. Shadows appear only on floating things and the offer cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do give each section one band colour and pick its text colour for contrast.",
+      "Do keep body copy at Roboto 300 and headlines at Ubuntu Condensed 300 at 40px.",
+      "Do use pill buttons and 8px inputs.",
+      "Do let illustration and band colour carry decoration."
+    ],
+    "donts": [
+      "Don't put white text on Paper Mint (2.05:1) or Cyan Blue (2.47:1).",
+      "Don't use Nav Grey on Charcoal for small text (3.31:1).",
+      "Don't rely on Muted Grey for small text on white (4.48:1).",
+      "Don't request font weights that are not loaded.",
+      "Don't introduce shadows on resting surfaces or a second saturated colour inside a band."
+    ]
+  }
+}
