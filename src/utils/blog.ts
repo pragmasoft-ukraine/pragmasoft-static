@@ -40,13 +40,16 @@ const generatePermalink = async ({
     .join('/'));
 };
 
+// Posts without publishDate share one date; ties are then ordered by id descending (matches the original site order).
+const BUILD_DATE = new Date();
+
 const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {
   const { id, data } = post;
   const rawSlug = id;
   const { Content, remarkPluginFrontmatter } = await render(post);
 
   const {
-    publishDate: rawPublishDate = new Date(),
+    publishDate: rawPublishDate = BUILD_DATE,
     updateDate: rawUpdateDate,
     title,
     excerpt,
@@ -108,7 +111,7 @@ const load = async function (): Promise<Array<Post>> {
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
   const results = (await Promise.all(normalizedPosts))
-    .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
+    .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf() || (a.id < b.id ? 1 : a.id > b.id ? -1 : 0))
     .filter((post) => !post.draft);
 
   return results;
