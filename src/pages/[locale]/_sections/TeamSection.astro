@@ -45,6 +45,7 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'jpg'}
   </div>
 </WidgetWrapper>
 <style>
+  @reference '../../../assets/styles/tailwind.css';
   .photo-container {
     --photo-width: 220px;
     @apply flex flex-wrap place-content-center;
@@ -54,10 +55,10 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'jpg'}
   }
   .item {
     @apply transition-all duration-700 grayscale hover:grayscale-0 border border-white;
-    @apply max-w-[var(--photo-width)] md:max-w-full;
+    @apply max-w-(--photo-width) md:max-w-full;
   }
   .item img {
     content-visibility: visible;
-    @apply !aspect-square md:!aspect-auto !object-top;
+    @apply aspect-square! md:aspect-auto! !object-top;
   }
 </style>

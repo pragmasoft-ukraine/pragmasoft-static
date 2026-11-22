@@ -34,7 +34,7 @@ const optimizedBackgroundColorsSm = await getImage({src: footerImgSm, format: 'p
     <!-- <Header {...headerData} isSticky showToggleTheme /> -->
   </slot>
   <main class="relative">
-    <div class="absolute inset-0 pointer-events-none -z-[1] [background:var(--pragma-team-bg)_top_center_scroll_repeat]" aria-hidden="true"
+    <div class="absolute inset-0 pointer-events-none z-[-1] [background:var(--pragma-team-bg)_top_center_scroll_repeat]" aria-hidden="true"
       style={`--pragma-team-bg:url(${optimizedBackground.src})`}>
     </div>
     <slot />
