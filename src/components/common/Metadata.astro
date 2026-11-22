@@ -1,14 +1,15 @@
 ---
 import merge from 'lodash.merge';
-import { AstroSeo } from '@astrolib/seo';
+import { SEO } from 'astro-seo';
 
-import type { Props as AstroSeoProps } from '@astrolib/seo';
+import type { SEOProps } from 'astro-seo';
 
 import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
 import { adaptOpenGraphImages } from '~/utils/images';
+import type { OpenGraph } from '~/utils/images';
 import { useTranslations } from '~/i18n/utils';
 
 export interface Props extends MetaData {
@@ -27,7 +28,7 @@ const {
   twitter = {},
 } = Astro.props;
 
-const seoProps: AstroSeoProps = merge(
+const mergedProps: Record<string, any> = merge(
   {
     title: '',
     titleTemplate: '%s',
@@ -71,6 +72,30 @@ const seoProps: AstroSeoProps = merge(
     twitter: twitter,
   }
 );
+const og: OpenGraph = await adaptOpenGraphImages(mergedProps?.openGraph, Astro.site);
+const firstImage = og?.images?.[0];
+
+const seoProps: SEOProps = {
+  title: mergedProps.title,
+  titleTemplate: mergedProps.titleTemplate,
+  canonical: mergedProps.canonical,
+  noindex: mergedProps.noindex,
+  nofollow: mergedProps.nofollow,
+  description: mergedProps.description,
+  openGraph: firstImage?.url
+    ? {
+        basic: { title: mergedProps.title, type: og.type || 'website', image: firstImage.url, url: og.url || mergedProps.canonical },
+        optional: { description: mergedProps.description, locale: og.locale, siteName: og.site_name },
+        image: { url: firstImage.url, width: firstImage.width, height: firstImage.height },
+      }
+    : undefined,
+  twitter: {
+    card: mergedProps.twitter?.cardType,
+    site: mergedProps.twitter?.site,
+    creator: mergedProps.twitter?.handle,
+  },
+  surpressWarnings: true,
+};
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<SEO {...seoProps} />
