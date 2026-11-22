@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<Hero2 id={id} classes={{content: "!p-0 !pt-[76px] lg:!pb-20"}}>
+<Hero2 id={id} classes={{content: "p-0! pt-[76px]! lg:pb-20!"}}>
   <Fragment slot="bg">
     <div class="absolute inset-0 flex md:pt-[76px]">
       <div class="relative flex w-full items-center lg:items-start px-[15px] lg:[background:var(--pragma-hero-bg-colors)_top_center_scroll_no-repeat]" 
@@ -28,7 +28,7 @@ const {
       >
         <div class="mx-auto grid md:w-[750px] lg:w-[970px] min-h-[105px] lg:min-h-[284px]">
           <Image
-            class="block lg:hidden mt-[40px] !object-contain justify-self-center"
+            class="block lg:hidden mt-[40px] object-contain! justify-self-center"
             loading="eager"
             width={678}
             height={35}

@@ -26,13 +26,13 @@ const optimizedBackground = await getImage({src: backgroundImage, format: 'png'}
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class:list={[
       "flex flex-wrap justify-center mx-auto text-center w-full max-w-[856px] px-[36px]",
-      "[background-image:var(--pragma-stats-bg)] bg-contain [aspect-ratio:856/338]",
+      "[background-image:var(--pragma-stats-bg)] bg-contain aspect-856/338",
     ]}
     style={`--pragma-stats-bg:url(${optimizedBackground.src});`}>
     {
       stats &&
         stats.map(({ amount, title, icon }) => (
-          <div class="font-heading p-4 md:w-1/4 sm:w-1/2 w-full min-w-[calc(100%/4)] text-center leading-none dark:md:border-slate-500 even:mt-[14%]">
+          <div class="font-heading p-4 md:w-1/4 sm:w-1/2 w-full min-w-[25%] text-center leading-none dark:md:border-slate-500 even:mt-[14%]">
             {icon && (
               <div class="flex items-center justify-center mx-auto mb-4 text-primary">
                 <Icon name={icon} class="w-10 h-10" />

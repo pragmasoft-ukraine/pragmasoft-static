@@ -58,8 +58,8 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-none transition-[opacity] ease-in-out',
-    'after:absolute after:-z-10 after:w-full after:hidden after:md:block after:h-[16px] after:[background:var(--pragma-header-bg)_top_center_scroll_repeat]',
+    'top-0 z-40 flex-none mx-auto w-full border-none transition-opacity ease-in-out',
+    'after:absolute after:-z-10 after:w-full after:hidden md:after:block after:h-[16px] after:[background:var(--pragma-header-bg)_top_center_scroll_repeat]',
     '[border-bottom:1px_solid_#2abb9b] md:border-none'
   ]}
   style={`--pragma-header-bg: url(${optimizedBackground.src});`}
@@ -89,7 +89,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
-        <ToggleMenu class="flex flex-col h-10 w-10 sm:h-12 sm:w-12 rounded justify-center items-center cursor-pointer group *:bg-white"/>
+        <ToggleMenu class="flex flex-col h-10 w-10 sm:h-12 sm:w-12 rounded-sm justify-center items-center cursor-pointer group *:bg-white"/>
       </div>
     </div>
     <nav
@@ -108,7 +108,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
                     {text}{' '}
                     <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                   </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-normal md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded-sm md:absolute pl-4 md:pl-0 md:hidden font-normal md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                     {links.map(({ text: text2, href: href2, external: external2 }) => (
                       <li>
                         <a
@@ -154,7 +154,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
           {
             showRssFeed && (
               <a
-                class="text-[#999] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="text-[#999] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >
@@ -215,6 +215,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
 </nav>
 
 <style>
+  @reference '../../assets/styles/tailwind.css';
   .main-nav {
     --underline-width: 0;
     --underline-offset-x: 0;
@@ -234,7 +235,7 @@ const optimizedBackground = await getImage({src: bgImage, format: 'png'});
     @apply text-white [transition:none] after:block after:absolute after:inset-x-0 after:bottom-[2px] after:h-[5px] after:bg-[#2abb9b];
   }
   .mobile-nav a:hover {
-    @apply after:-bottom-[4px] after:z-10;
+    @apply after:bottom-[-4px] after:z-10;
   }
   .active {
     @apply text-white;
