@@ -1,4 +1,6 @@
-import { z, defineCollection } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const metadataDefinition = () =>
   z
@@ -46,6 +48,7 @@ const metadataDefinition = () =>
     .optional();
 
 const postCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/post' }),
   schema: z.object({
     publishDate: z.date().optional(),
     updateDate: z.date().optional(),
@@ -78,6 +81,7 @@ const testimonialDefinition = z.object({
 
 
 const sectionCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/section' }),
   schema: z.union([
     namedSectionDefinition.merge(z.object({
       type: z.literal("projects"),

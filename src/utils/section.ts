@@ -1,11 +1,12 @@
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Section } from '~/types';
 import { cleanSlug } from './permalinks';
 
 const getNormalizedSection = async (section: CollectionEntry<'section'>): Promise<Section> => {
-  const { id, slug: rawSlug = '', data } = section;
-  const { Content } = await section.render();
+  const { id, data } = section;
+  const rawSlug = id;
+  const { Content } = await render(section);
 
   const slug = cleanSlug(rawSlug); // cleanSlug(rawSlug.split('/').pop());
   const {type} = data;
