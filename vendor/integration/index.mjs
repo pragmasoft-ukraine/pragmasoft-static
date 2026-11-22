@@ -11,7 +11,7 @@ export default ({ config: _themeConfig = 'src/config.yaml', env = {}} = {}) => {
 
     hooks: {
       'astro:config:setup': async ({
-        // command,
+        command,
         config,
         // injectRoute,
         // isRestart,
@@ -35,7 +35,8 @@ export default ({ config: _themeConfig = 'src/config.yaml', env = {}} = {}) => {
           site: SITE.site,
           base: SITE.base,
 
-          trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+          // In dev, 'always' makes Astro's own /_image endpoint (no trailing slash) 404, breaking every srcset
+          trailingSlash: SITE.trailingSlash ? (command === 'dev' ? 'ignore' : 'always') : 'never',
 
           vite: {
             plugins: [
