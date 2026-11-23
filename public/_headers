@@ -1,2 +1,12 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/en/conference/practical-agentic-software-engineering-2026.ics
+  Content-Type: text/calendar; charset=utf-8
+  Content-Disposition: inline; filename="practical-agentic-software-engineering-2026.ics"
+  Cache-Control: public, max-age=3600
+
+/uk/conference/practical-agentic-software-engineering-2026.ics
+  Content-Type: text/calendar; charset=utf-8
+  Content-Disposition: inline; filename="practical-agentic-software-engineering-2026.ics"
+  Cache-Control: public, max-age=3600

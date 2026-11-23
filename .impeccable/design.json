@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-22T20:52:04.330057+00:00",
+  "generatedAt": "2026-11-23T13:29:12.685051+00:00",
   "title": "Design System: Pragmasoft",
   "extensions": {
     "colorMeta": {
@@ -195,6 +195,36 @@
           "#d1d1d1",
           "#eeeeee"
         ]
+      },
+      "hero-title": {
+        "role": "tertiary",
+        "displayName": "Hero Title Green",
+        "canonical": "#0d7a62",
+        "tonalRamp": [
+          "#001a12",
+          "#02362a",
+          "#0d7a62",
+          "#2f9a82",
+          "#5fb8a2",
+          "#93d3c3",
+          "#c4e9df",
+          "#e8f7f3"
+        ]
+      },
+      "photo-rim": {
+        "role": "neutral",
+        "displayName": "Photo Rim",
+        "canonical": "#2f2f2f",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#1a1a1a",
+          "#2f2f2f",
+          "#4a4a4a",
+          "#6e6e6e",
+          "#9a9a9a",
+          "#c8c8c8",
+          "#eeeeee"
+        ]
       }
     },
     "typographyMeta": {
@@ -217,6 +247,14 @@
       "button": {
         "displayName": "Button",
         "purpose": "Button labels."
+      },
+      "strata-title": {
+        "displayName": "Strata Title",
+        "purpose": "Conference hero h1, uppercase, Hero Title Green."
+      },
+      "strata-day": {
+        "displayName": "Day Numeral",
+        "purpose": "Agenda day numbers, tabular figures."
       }
     },
     "shadows": [
@@ -234,6 +272,11 @@
         "name": "dropdown",
         "value": "drop-shadow-xl",
         "purpose": "Nav sub-menus."
+      },
+      {
+        "name": "none-stacked-lip",
+        "value": "none",
+        "purpose": "Conference page depth is a flat darker lip layer (::after, 10px below the seam shape), never a shadow."
       }
     ],
     "motion": [
@@ -246,6 +289,26 @@
         "name": "slogan-slide",
         "value": "transform 1000ms",
         "purpose": "Hero slogan slides in on page load."
+      },
+      {
+        "name": "strata-parallax",
+        "value": "animation-timeline: scroll(root) / view(); translate by --speed (90-360px)",
+        "purpose": "Clouds, kite and facets; only under prefers-reduced-motion: no-preference and @supports (animation-timeline: view()); timelines in separate rules."
+      },
+      {
+        "name": "strata-bob",
+        "value": "rotate -1.4deg to 1.6deg, 7s ease-in-out infinite",
+        "purpose": "Idle kite drift on its own property."
+      },
+      {
+        "name": "strata-lift",
+        "value": "translate 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Button lift and portrait/day hover (300ms)."
+      },
+      {
+        "name": "kite-straighten",
+        "value": "transform 700ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Kite hover."
       }
     ],
     "breakpoints": [
@@ -264,8 +327,62 @@
       {
         "name": "xl",
         "value": "1280px"
+      },
+      {
+        "name": "banner-wide",
+        "value": "900px"
+      },
+      {
+        "name": "strata-hero",
+        "value": "768px"
+      },
+      {
+        "name": "strata-narrow",
+        "value": "480px"
       }
-    ]
+    ],
+    "strata": {
+      "seam": {
+        "viewBox": "0 0 600 48",
+        "path": "M0 48V30L70 8l62 28 78-32 82 34 68-24 70 30 90-34 80 28V48Z",
+        "maskSize": "600px 48px",
+        "lipOffsetX": "90px"
+      },
+      "layers": [
+        {
+          "name": "sky",
+          "layer": "#ffffff",
+          "text": "#464646",
+          "ground": "triangles-light.svg 32x57 lattice #eeeeee"
+        },
+        {
+          "name": "marigold",
+          "layer": "#ffb700",
+          "edge": "color-mix(in oklch, #ffb700, #000 16%)",
+          "text": "#464646"
+        },
+        {
+          "name": "mint",
+          "layer": "#30cbab",
+          "edge": "color-mix(in oklch, #30cbab, #000 16%)",
+          "text": "#101010"
+        },
+        {
+          "name": "slate",
+          "layer": "#485365",
+          "edge": "color-mix(in oklch, #485365, #000 28%)",
+          "text": "#ffffff"
+        }
+      ],
+      "cloudShades": [
+        "#81cddb",
+        "#5fb7cf",
+        "#a8dde8",
+        "#c4eaf1",
+        "#6cc0d6"
+      ],
+      "cloudOpacity": "0.42-0.72"
+    }
   },
   "components": [
     {
@@ -323,17 +440,58 @@
       "description": "Signature: a flat colour band with a light condensed headline.",
       "html": "<section class=\"ds-section\"><h2>Mobile App<br>Development</h2><p>One flat colour per band; text colour chosen for contrast.</p></section>",
       "css": ".ds-section{background:#81cddb;color:#464646;padding:40px 32px;text-align:center}.ds-section h2{font:300 40px/1 'Ubuntu Condensed',sans-serif;margin:0 0 16px}.ds-section p{font:300 18px/1.25 Roboto,sans-serif;margin:0}"
+    },
+    {
+      "name": "Conference Banner",
+      "kind": "custom",
+      "refersTo": "conference-banner",
+      "description": "Marigold strip, Ink text 10.9:1, whole banner is the link, close button stores sessionStorage.",
+      "html": "<div class='ds-banner'><a class='ds-banner-link' href='#'><span>Conference starts 30 November.</span> <span class='ds-banner-cta'>See the programme</span></a><button class='ds-banner-close' aria-label='Close'>&times;</button></div>",
+      "css": ".ds-banner{position:relative;display:flex;align-items:center;justify-content:center;min-height:36px;padding:8px 44px 8px 76px;background:#ffb700;color:#101010;font:400 16px/1.3 Roboto,sans-serif;text-align:center;overflow:hidden}.ds-banner-link{color:inherit;text-decoration:none}.ds-banner-cta{text-decoration:underline;text-underline-offset:.2em;white-space:nowrap}.ds-banner:hover .ds-banner-cta{text-decoration-thickness:2px}.ds-banner-close{position:absolute;right:8px;top:50%;translate:0 -50%;width:32px;height:32px;border:0;border-radius:9999px;background:transparent;color:inherit;cursor:pointer;transition:background-color .15s ease-out,rotate .25s cubic-bezier(.22,1,.36,1)}.ds-banner-close:hover{rotate:90deg;background:rgb(70 70 70/14%)}.ds-banner-close:focus-visible{outline:2px solid #101010;outline-offset:2px;border-radius:4px}"
+    },
+    {
+      "name": "Strata Button",
+      "kind": "button",
+      "refersTo": "button-strata",
+      "description": "Charcoal pill that lifts on hover; Signal Yellow variant on slate.",
+      "html": "<a class='ds-strata-btn' href='#'>Add to calendar</a>",
+      "css": ".ds-strata-btn{display:inline-block;padding:14px 32px;border-radius:9999px;background:#464646;color:#fff;font:400 16px/1.375 Roboto,sans-serif;text-decoration:none;transition:background-color .2s ease-out,translate .22s cubic-bezier(.22,1,.36,1)}.ds-strata-btn:hover{background:#101010;translate:0 -3px}.ds-strata-btn:active{translate:0 0}.ds-strata-btn:focus-visible{outline:3px solid #464646;outline-offset:3px}"
+    },
+    {
+      "name": "Strata Layer Seam",
+      "kind": "custom",
+      "refersTo": "band-orange",
+      "description": "Marigold sheet torn along the triangular seam with a darker lip beneath.",
+      "html": "<div class='ds-seam-wrap'><div class='ds-layer'><h2>Week one</h2></div></div>",
+      "css": ".ds-seam-wrap{background:#fff;padding-top:60px}.ds-layer{position:relative;background:#ffb700;color:#464646;padding:48px 24px 56px}.ds-layer::before,.ds-layer::after{content:'';position:absolute;left:0;right:0;height:48px;pointer-events:none;-webkit-mask:var(--seam) repeat-x 0 0/600px 48px;mask:var(--seam) repeat-x 0 0/600px 48px}.ds-layer{--seam:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48V30L70 8l62 28 78-32 82 34 68-24 70 30 90-34 80 28V48Z'/%3E%3C/svg%3E\")}.ds-layer::before{top:-47px;background:#ffb700;z-index:1}.ds-layer::after{top:-37px;background:#d99c00;mask-position:90px 0;-webkit-mask-position:90px 0}.ds-layer h2{position:relative;z-index:2;margin:0;font:400 40px/1.05 'Ubuntu Condensed',sans-serif}"
+    },
+    {
+      "name": "Origami Kite",
+      "kind": "custom",
+      "refersTo": "band-sky",
+      "description": "Logo-coloured folded kite in CSS perspective.",
+      "html": "<svg viewBox='0 0 400 480' width='120' aria-hidden='true'><polygon points='200,0 110,83 200,189 290,83' fill='#64d1a0'/><polygon points='20,211 110,83 200,189 64,275' fill='#f03f09'/><polygon points='380,211 290,83 200,189 337,275' fill='#f65c2c'/><polygon points='64,275 200,189 200,480' fill='#19a485'/><polygon points='337,275 200,189 200,480' fill='#2abb9c'/></svg>",
+      "css": "svg{display:block;transform:perspective(1100px) rotateY(-34deg) rotateX(14deg) rotateZ(12deg);transform-origin:50% 35%;transition:transform .7s cubic-bezier(.22,1,.36,1)}svg:hover{transform:perspective(1100px) rotateY(-24deg) rotateX(8deg) rotateZ(6deg) scale(1.04)}"
+    },
+    {
+      "name": "Speaker Portrait",
+      "kind": "custom",
+      "refersTo": "speaker-portrait",
+      "description": "Photo in a 3px neutral rim, clipped to a hexagon.",
+      "html": "<span class='ds-rim'><span class='ds-photo'></span></span>",
+      "css": ".ds-rim{display:block;width:72px;padding:3px;background:#2f2f2f;clip-path:polygon(50% 0,100% 12%,100% 88%,50% 100%,0 88%,0 12%);transition:transform .3s cubic-bezier(.22,1,.36,1)}.ds-rim:hover{transform:scale(1.07) rotate(-3deg)}.ds-photo{display:block;aspect-ratio:1;background:#7fe0cb;clip-path:polygon(50% 0,100% 12%,100% 88%,50% 100%,0 88%,0 12%)}"
     }
   ],
   "narrative": {
     "northStar": "The Paper Workshop",
-    "overview": "The site reads as a stack of flat, saturated paper sheets, each holding one section of the story, with hand-built paper creatures and parallax paper-cut scenery on top. The type is quiet and light so the colour and the paper imagery carry the personality.",
+    "overview": "The site reads as a stack of flat, saturated paper sheets, each holding one section of the story, with hand-built paper creatures and parallax paper-cut scenery on top. The type is quiet and light so the colour and the paper imagery carry the personality. The conference page extends it as Strata: sky, marigold, mint and slate sheets stacked with faceted triangle seams, low-poly clouds, an origami kite and scroll-speed parallax.",
     "keyCharacteristics": [
       "One flat colour band per section; the band colour is the section's identity.",
       "Light-weight type (Roboto 300) at generous size; condensed uppercase for navigation.",
       "Pill-shaped buttons; soft 8px inputs.",
       "Papercraft illustration and parallax layers carry decoration.",
-      "Light and dark modes both exist; the dark page is a deep navy."
+      "Light and dark modes both exist; the dark page is a deep navy.",
+      "Faceted triangles (seams, lattice, clouds, kite, facets, hexagon portraits) are the second shape motif."
     ],
     "rules": [
       {
@@ -343,7 +501,7 @@
       },
       {
         "name": "The Mint Is Not A Text Colour Rule",
-        "body": "Mint on white is 2.05:1 and Deep Mint on white is 3.14:1. Use them for fills, rules and large icons.",
+        "body": "Mint on white is 2.05:1 and Deep Mint on white is 3.14:1. Use them for fills, rules and large icons. The one green allowed to carry text is Hero Title Green (#0d7a62); #30cbab and #19a485 stay non-text.",
         "section": "colors"
       },
       {
@@ -360,20 +518,36 @@
         "name": "The Flat-By-Default Rule",
         "body": "Surfaces are flat. Shadows appear only on floating things and the offer cards.",
         "section": "elevation"
+      },
+      {
+        "name": "The Layer Owns Its Text Rule",
+        "body": "On the conference page every layer sets one text colour (Charcoal on sky and marigold, Ink on mint, white on slate) and children inherit it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stacked Lip Exception",
+        "body": "The conference page departs from Flat-By-Default on purpose, without shadows: depth is a torn seam shape plus a darker lip of the same hue, and parallax furniture behind the content column.",
+        "section": "elevation"
       }
     ],
     "dos": [
       "Do give each section one band colour and pick its text colour for contrast.",
       "Do keep body copy at Roboto 300 and headlines at Ubuntu Condensed 300 at 40px.",
       "Do use pill buttons and 8px inputs.",
-      "Do let illustration and band colour carry decoration."
+      "Do let illustration and band colour carry decoration.",
+      "Do build new conference surfaces from the Strata parts: a layer colour with its lip, its own text colour, furniture in the layer's tint behind the content column, and parallax gated by reduced motion and @supports.",
+      "Do use only weights 300 and 400 on new surfaces; they are loaded, so nothing is synthesised.",
+      "Do put the animation-timeline in its own rule, never inside the animation shorthand.",
+      "Do keep the hero title in #0d7a62; use mint #30cbab and #19a485 for fills only."
     ],
     "donts": [
       "Don't put white text on Paper Mint (2.05:1) or Cyan Blue (2.47:1).",
       "Don't use Nav Grey on Charcoal for small text (3.31:1).",
       "Don't rely on Muted Grey for small text on white (4.48:1).",
       "Don't request font weights that are not loaded.",
-      "Don't introduce shadows on resting surfaces or a second saturated colour inside a band."
+      "Don't introduce shadows on resting surfaces or a second saturated colour inside a band. Stacked lips and tinted facets are the sanctioned depth on the conference page.",
+      "Don't put white text on Mint or Marigold layers; Mint takes Ink, Marigold takes Charcoal.",
+      "Don't let a parallax layer sit above the content column (z-index: 2) or capture pointer events."
     ]
   }
 }

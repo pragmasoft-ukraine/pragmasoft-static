@@ -1,0 +1,56 @@
+---
+// Speaker portrait: a face crop when we have a photo, otherwise a faceted low-poly placeholder
+// in the layer's colours. Both sit in the same hexagon.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  initials: string;
+  label: string;
+  photo?: ImageMetadata;
+}
+const { initials, label, photo } = Astro.props;
+---
+
+{photo ? (
+  <span class="portrait-frame">
+    <Image class="portrait" src={photo} alt={label} width={144} height={144} densities={[1, 2]} />
+  </span>
+) : (
+<svg class="portrait" viewBox="0 0 64 64" role="img" aria-label={label}>
+  <rect width="64" height="64" fill="var(--p-bg)"></rect>
+  <polygon points="0,64 0,50 18,42 32,50 46,41 64,52 64,64" fill="var(--p-shoulder)"></polygon>
+  <polygon points="32,8 46,16 50,30 32,40" fill="var(--p-face-b)"></polygon>
+  <polygon points="32,8 18,16 14,30 32,40" fill="var(--p-face-a)"></polygon>
+  <polygon points="14,30 32,40 24,48 16,40" fill="var(--p-face-c)"></polygon>
+  <polygon points="50,30 32,40 40,48 48,40" fill="var(--p-face-a)"></polygon>
+  <text x="32" y="26" text-anchor="middle" dominant-baseline="middle" class="portrait-initials">{initials}</text>
+</svg>
+)}
+
+<style>
+  .portrait {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0, 100% 22%, 100% 78%, 50% 100%, 0 78%, 0 22%);
+    object-fit: cover;
+  }
+  /* Photos get a gentler hexagon so faces are not clipped at the corners */
+  .portrait-frame {
+    display: block;
+    padding: 3px;
+    background: #2f2f2f; /* neutral dark rim so photos hold their edge on any layer colour */
+    clip-path: polygon(50% 0, 100% 12%, 100% 88%, 50% 100%, 0 88%, 0 12%);
+  }
+  img.portrait {
+    clip-path: polygon(50% 0, 100% 12%, 100% 88%, 50% 100%, 0 88%, 0 12%);
+  }
+  .portrait-initials {
+    font: 400 20px 'Ubuntu Condensed', ui-sans-serif, sans-serif;
+    fill: var(--p-ink);
+    paint-order: stroke; stroke: var(--p-bg); stroke-width: 2px; stroke-linejoin: round;
+    letter-spacing: 0.04em;
+  }
+</style>

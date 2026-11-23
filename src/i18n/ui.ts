@@ -12,6 +12,9 @@ export const ui = {
     'nav.team': 'Our team',
     'nav.quality': 'Quality',
     'nav.jobs': 'Vacancies',
+    'banner.conference.text': 'Practical agentic software engineering 2026, online conference, 30 Nov – 10 Dec.',
+    'banner.conference.link': 'See the schedule',
+    'banner.close': 'Close announcement',
 
     'blog.meta.title': 'Projects',
     'blog.title': 'Projects',
@@ -46,6 +49,9 @@ export const ui = {
     'nav.team': 'Наша команда',
     'nav.quality': 'Якість',
     'nav.jobs': 'Вакансії',
+    'banner.conference.text': 'Practical agentic software engineering 2026, онлайн-конференція, 30 листопада – 10 грудня.',
+    'banner.conference.link': 'Переглянути програму',
+    'banner.close': 'Закрити оголошення',
 
     'blog.meta.title': 'Проєкти',
     'blog.title': 'Проєкти',

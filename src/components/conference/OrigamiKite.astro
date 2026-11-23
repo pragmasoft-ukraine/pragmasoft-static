@@ -1,0 +1,26 @@
+---
+// A paper kite folded the classic way: mint front, orange-red reverse side showing on the two
+// folded-down flaps, a spine, and a twisted string. Body is about 3:4, drawn in the logo's colours.
+interface Props {
+  class?: string;
+  /** Draw the twisted string below the kite. */
+  string?: boolean;
+}
+const { class: className, string = true } = Astro.props;
+---
+
+<svg class={className} viewBox={string ? '0 0 400 840' : '0 0 400 480'} aria-hidden="true" focusable="false">
+  {string && <path d="M200 480C176 540 232 600 204 660S190 760 214 830" fill="none" stroke="#19a485" stroke-width="6" stroke-dasharray="10 5" stroke-linecap="round"></path>}
+  <!-- head -->
+  <polygon points="200,0 110,83 200,189 290,83" fill="#64d1a0"></polygon>
+  <polygon points="200,0 110,83 200,189" fill="#4fc79a"></polygon>
+  <!-- folded-down flaps, reverse side of the paper -->
+  <polygon points="20,211 110,83 200,189 64,275" fill="#f03f09"></polygon>
+  <polygon points="380,211 290,83 200,189 337,275" fill="#f65c2c"></polygon>
+  <polygon points="20,211 110,83 200,189" fill="#d93508"></polygon>
+  <!-- body, two facets meeting at the spine -->
+  <polygon points="64,275 200,189 200,480" fill="#19a485"></polygon>
+  <polygon points="337,275 200,189 200,480" fill="#2abb9c"></polygon>
+  <polygon points="200,189 200,480 178,336" fill="#137a64"></polygon>
+  <polygon points="200,189 200,480 222,336" fill="#1f9f86"></polygon>
+</svg>
