@@ -1,15 +1,18 @@
-# Build the site and deploy it to Cloudflare Pages (Direct Upload).
+# Build the site and deploy it to Cloudflare Workers (static assets + the Decap CMS OAuth handlers).
 #
-# - push to master            -> production deployment
-# - pull request / other push -> preview deployment on <branch>.<project>.pages.dev
+# - push to master            -> production deployment (https://pragmasoft.dev)
+# - pull request              -> new Worker version uploaded, not promoted (preview URL in the job log)
 #
 # One-time setup (repository settings -> Secrets and variables -> Actions):
-#   secret   CLOUDFLARE_API_TOKEN          API token with "Cloudflare Pages: Edit"
-#   secret   CLOUDFLARE_ACCOUNT_ID         Cloudflare account id
-#   variable CLOUDFLARE_PAGES_PROJECT      Pages project name
-# The Decap CMS login (functions/api) also needs GITHUB_CLIENT_ID and
-# GITHUB_CLIENT_SECRET set as environment variables on the Pages project itself.
-name: Deploy to Cloudflare Pages
+#   secret   CLOUDFLARE_API_TOKEN    API token with "Workers Scripts: Edit" (plus the zone permissions
+#                                    needed for the custom domain route in wrangler.jsonc)
+#   variable CLOUDFLARE_ACCOUNT_ID   Cloudflare account id (not sensitive)
+#   secret   OAUTH_CLIENT_SECRET     GitHub OAuth app client secret for the Decap CMS login. Uploaded to the
+#                                    Worker as GITHUB_CLIENT_SECRET on every push to master (Actions does not
+#                                    allow secret names starting with GITHUB_). To rotate it, update this
+#                                    secret and re-run the workflow.
+# GITHUB_CLIENT_ID is a plain var in wrangler.jsonc.
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -19,7 +22,6 @@ on:
 
 permissions:
   contents: read
-  deployments: write
 
 concurrency:
   group: deploy-${{ github.ref }}
@@ -46,11 +48,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
+        env:
+          GITHUB_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          # Run from the repo root so wrangler also bundles ./functions
-          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }} --branch=${{ github.head_ref || github.ref_name }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          # Production on master, otherwise upload a version without making it live
+          command: ${{ github.event_name == 'pull_request' && 'versions upload' || 'deploy' }}
+          # Secrets apply to the live Worker immediately, so never sync them from pull requests
+          secrets: ${{ github.event_name != 'pull_request' && 'GITHUB_CLIENT_SECRET' || '' }}
