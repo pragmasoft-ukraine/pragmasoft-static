@@ -1,0 +1,56 @@
+---
+// A cloud drawn as a low-poly mesh: three rows of jittered points, each cell cut into two triangles,
+// each triangle a semi-transparent shade of sky blue. Deterministic per seed so builds are stable.
+interface Props {
+  seed?: number;
+  cols?: number;
+  class?: string;
+  style?: string;
+}
+const { seed = 1, cols = 7, class: className, style } = Astro.props;
+
+const rnd = (n: number) => {
+  const x = Math.sin(n * 127.1 + seed * 311.7) * 43758.5453;
+  return x - Math.floor(x);
+};
+const W = 400;
+const H = 150;
+const shades = ['#81cddb', '#5fb7cf', '#a8dde8', '#c4eaf1', '#6cc0d6'];
+
+// rows: top profile (bumpy), middle, flat bottom
+const rows = [0, 1, 2].map((r) =>
+  Array.from({ length: cols }, (_, i) => {
+    const t = i / (cols - 1);
+    const hump = Math.sin(Math.PI * t) ** 0.8;
+    const jx = (rnd(i * 7 + r * 13) - 0.5) * (W / cols) * 0.55;
+    const x = Math.min(W, Math.max(0, t * W + (i === 0 || i === cols - 1 ? 0 : jx)));
+    const y =
+      r === 0 ? H * 0.62 - hump * H * 0.5 + (rnd(i * 3 + 1) - 0.5) * 22 :
+      r === 1 ? H * 0.78 - hump * H * 0.22 + (rnd(i * 5 + 2) - 0.5) * 14 :
+      H * 0.95 + (rnd(i * 11 + 3) - 0.5) * 6;
+    return [x, y] as [number, number];
+  })
+);
+
+const tris: { pts: string; fill: string; o: number }[] = [];
+let k = 0;
+for (let r = 0; r < 2; r++) {
+  for (let i = 0; i < cols - 1; i++) {
+    const a = rows[r][i], b = rows[r][i + 1], c = rows[r + 1][i], d = rows[r + 1][i + 1];
+    const flip = rnd(k + 40) > 0.5;
+    const pair = flip ? [[a, b, d], [a, d, c]] : [[a, b, c], [b, d, c]];
+    for (const p of pair) {
+      tris.push({
+        pts: p.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' '),
+        fill: shades[Math.floor(rnd(k * 3 + 9) * shades.length)],
+        o: 0.42 + rnd(k * 5 + 4) * 0.3,
+      });
+      k++;
+    }
+  }
+}
+---
+
+<svg class={className} style={style} viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
+  {tris.map((t) => <polygon points={t.pts} fill={t.fill} fill-opacity={t.o.toFixed(2)}></polygon>)}
+</svg>

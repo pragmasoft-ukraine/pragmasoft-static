@@ -1,0 +1,307 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Portrait from '~/components/conference/Portrait.astro';
+import OrigamiKite from '~/components/conference/OrigamiKite.astro';
+import LowPolyCloud from '~/components/conference/LowPolyCloud.astro';
+import { copy, talks, weekOf, formatDay, GOOGLE_CALENDAR_ID, type Locale } from '~/data/conference';
+
+import triangles from '~/assets/images/bg/triangles-light.svg';
+import kozliakov from '~/assets/images/conference/kozliakov.jpg';
+import liubov from '~/assets/images/conference/liubov.jpg';
+import novoselov from '~/assets/images/conference/novoselov.jpg';
+import zemnytskyiDmytro from '~/assets/images/conference/zemnytskyi-dmytro.jpg';
+
+export const getStaticPaths = (() => [{ params: { locale: 'en' } }, { params: { locale: 'uk' } }]) satisfies GetStaticPaths;
+
+const locale = Astro.params.locale as Locale;
+const c = copy[locale];
+const icsHref = `/${locale}/conference/${c.icsName}`;
+const photos = { kozliakov, liubov, novoselov, 'zemnytskyi-dmytro': zemnytskyiDmytro };
+// "Add calendar" link for a public Google Calendar (cid is the base64 calendar ID)
+const gcalHref = GOOGLE_CALENDAR_ID
+  ? `https://calendar.google.com/calendar/u/0?cid=${btoa(GOOGLE_CALENDAR_ID).replace(/=+$/, '')}&hl=${locale}`
+  : undefined;
+const gcalAttrs = gcalHref ? { href: gcalHref, target: '_blank', rel: 'noopener', 'data-fixed': '' } : { href: icsHref };
+const weeks = [talks.filter((t) => weekOf(t) === 0), talks.filter((t) => weekOf(t) === 1)];
+---
+
+<Layout
+  showTagline={false}
+  metadata={{
+    title: c.metaTitle,
+    description: c.metaDescription,
+    openGraph: { type: 'website' },
+  }}
+>
+  <div class="strata">
+    <!-- Sky -->
+    <section class="layer sky" aria-labelledby="conf-title" style={`--triangles: url(${triangles.src})`}>
+      <LowPolyCloud class="cloud" seed={3} cols={8} style="--speed: 150px; left: 58%; top: 4%; width: 34rem" />
+      <LowPolyCloud class="cloud" seed={7} cols={6} style="--speed: 290px; left: -3%; top: 58%; width: 24rem" />
+      <LowPolyCloud class="cloud" seed={11} cols={7} style="--speed: 90px; left: 34%; top: 80%; width: 20rem" />
+      <LowPolyCloud class="cloud" seed={5} cols={5} style="--speed: 360px; left: 74%; top: 0%; width: 13rem" />
+      <LowPolyCloud class="cloud" seed={9} cols={7} style="--speed: 210px; right: -4%; top: 66%; width: 26rem" />
+      <OrigamiKite class="kite-big" />
+
+      <div class="wrap hero">
+        <h1 id="conf-title" lang="en">{c.title}</h1>
+        <p class="lead">{c.lead}</p>
+        <ul class="facts">
+          {c.facts.map((f) => <li>{f}</li>)}
+        </ul>
+        <p class="actions">
+          <a class="btn gcal" {...gcalAttrs} data-ics={icsHref}>{c.addToCalendar}</a>
+          <a class="link" href={icsHref}>{c.downloadIcs}</a>
+          <a class="link" href="#agenda">{c.seeSchedule}</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Agenda: marigold, then mint -->
+    <div id="agenda" class="agenda" role="region" aria-label={c.agendaLabel}>
+      {weeks.map((list, w) => (
+        <section class:list={['layer', w === 0 ? 'marigold' : 'mint']} aria-labelledby={`week-${w}`}>
+          {w === 1 && (
+            <>
+              <svg class="facet" style="--speed: 120px; left: 5%; top: 18%; width: 110px" viewBox="0 0 100 90" aria-hidden="true"><polygon points="50,0 100,90 0,90"></polygon></svg>
+              <svg class="facet alt" style="--speed: 70px; right: 9%; top: 52%; width: 80px" viewBox="0 0 100 90" aria-hidden="true"><polygon points="0,0 100,20 40,90"></polygon></svg>
+            </>
+          )}
+          {w === 0 && (
+            <svg class="facet alt" style="--speed: 110px; right: 7%; top: 14%; width: 90px" viewBox="0 0 100 90" aria-hidden="true"><polygon points="0,0 100,20 40,90"></polygon></svg>
+          )}
+          <div class="wrap">
+            <h2 id={`week-${w}`}>{c.weeks[w]}</h2>
+            <ol class="talks">
+              {list.map((t) => {
+                const d = formatDay(t.date, locale);
+                return (
+                  <li class="talk">
+                    <time class="when" datetime={t.date}>
+                      <span class="day">{d.day}</span>
+                      <span class="month">{d.month}</span>
+                    </time>
+                    <div class="what">
+                      <h3>{t.speaker[locale]}</h3>
+                      <p class="topic">{t.topic[locale]}</p>
+                      <p class="meta">{d.weekday} · <span class="nw">{c.timeLine}</span></p>
+                    </div>
+                    <div class="who">
+                      <Portrait photo={t.photo && photos[t.photo]} initials={t.initials[locale]} label={`${c.portraitAlt} ${t.speaker[locale]}`} />
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Bedrock -->
+    <section class="layer slate" aria-labelledby="conf-close">
+      <svg class="facet" style="--speed: 90px; right: 12%; top: 24%; width: 120px" viewBox="0 0 100 90" aria-hidden="true"><polygon points="50,0 100,90 0,90"></polygon></svg>
+      <svg class="facet alt" style="--speed: 50px; right: 30%; top: 62%; width: 70px" viewBox="0 0 100 90" aria-hidden="true"><polygon points="0,0 100,20 40,90"></polygon></svg>
+      <div class="wrap close">
+        <h2 id="conf-close">{c.closeTitle}</h2>
+        <p>{c.closeText}</p>
+        <p class="actions">
+          <a class="btn on-slate gcal" {...gcalAttrs} data-ics={icsHref}>{c.addToCalendar}</a>
+          <a class="link" href={icsHref}>{c.downloadIcs}</a>
+        </p>
+        <p class="organiser">{c.organiser}</p>
+      </div>
+    </section>
+  </div>
+<script is:inline>
+  // Google Calendar subscribes to a public calendar URL, so the link is built from the live origin.
+  // Without JS (or on localhost) the button keeps pointing at the .ics file itself.
+  (function () {
+    var host = location.hostname;
+    if (document.querySelector('a.gcal[data-fixed]')) return;
+    if (!host || host === 'localhost' || host === '127.0.0.1') return;
+    document.querySelectorAll('a.gcal').forEach(function (a) {
+      var feed = 'webcal://' + location.host + a.getAttribute('data-ics');
+      a.href = 'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(feed);
+      a.target = '_blank';
+      a.rel = 'noopener';
+    });
+  })();
+</script>
+</Layout>
+
+<style is:global>
+  .strata {
+    isolation: isolate;
+    --sky: #81cddb;
+    --marigold: #ffb700;
+    --mint: #30cbab;
+    --slate: #485365;
+    --charcoal: #464646;
+    --ink: #101010;
+    --signal: #fad31a;
+    --edge-sky: color-mix(in oklch, #81cddb, #000 14%);
+    --edge-marigold: color-mix(in oklch, #ffb700, #000 16%);
+    --edge-mint: color-mix(in oklch, #30cbab, #000 16%);
+    --edge-slate: color-mix(in oklch, #485365, #000 28%);
+    --seam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 48' preserveAspectRatio='none'%3E%3Cpath d='M0 48V30L70 8l62 28 78-32 82 34 68-24 70 30 90-34 80 28V48Z'/%3E%3C/svg%3E");
+    --font-display: 'Ubuntu Condensed', ui-sans-serif, sans-serif;
+    position: relative;
+    overflow-x: clip;
+    font-family: Roboto, ui-sans-serif, sans-serif;
+    font-weight: 300;
+  }
+  /* Fallbacks for browsers without color-mix(). */
+  @supports not (color: color-mix(in oklch, red, blue)) {
+    .strata { --edge-sky: #6bb0bd; --edge-marigold: #d99c00; --edge-mint: #28aa8f; --edge-slate: #333c49; }
+  }
+
+  .strata ::selection { background: var(--charcoal); color: var(--signal); }
+  .strata a:focus-visible { outline: 3px solid var(--charcoal); outline-offset: 3px; border-radius: 9999px; }
+  .strata .slate a:focus-visible { outline-color: var(--signal); }
+
+  .strata .wrap { position: relative; z-index: 2; max-width: 62rem; margin-inline: auto; padding-inline: 1rem; }
+
+  /* Layers: flat paper, torn along a triangular seam */
+  .strata .layer { position: relative; isolation: isolate; padding-block: 5rem 6rem; }
+  .strata .layer + .layer, .strata .agenda .layer:first-child { margin-top: 0; }
+  .strata .layer::before,
+  .strata .layer::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 48px;
+    mask: var(--seam) repeat-x 0 0 / 600px 48px;
+    -webkit-mask: var(--seam) repeat-x 0 0 / 600px 48px;
+    pointer-events: none;
+  }
+  .strata .layer::before { top: -47px; background: var(--layer); z-index: 1; }
+  /* Darker lip of the sheet beneath, offset so each seam reads as a cut edge */
+  .strata .layer::after { top: -37px; background: var(--layer-edge); z-index: 0; mask-position: 90px 0; -webkit-mask-position: 90px 0; }
+  .strata .layer { background: var(--layer); color: var(--text); }
+  /* Hero ground: the site's subtle triangle lattice (light variant), redrawn as SVG */
+  .strata .sky { --layer: #fff; --layer-edge: #eee; --text: var(--charcoal); padding-top: 2rem; background: #fff var(--triangles) 0 0 / 32px 57px repeat; }
+  .strata .sky::before, .strata .sky::after { display: none; }
+  .strata .marigold { --layer: var(--marigold); --layer-edge: var(--edge-marigold); --text: var(--charcoal);
+    --p-bg: #ffd25c; --p-shoulder: #d99c00; --p-face-a: #f4a000; --p-face-b: #e08900; --p-face-c: #c97d00; --p-ink: #101010; }
+  .strata .mint { --layer: var(--mint); --layer-edge: var(--edge-mint); --text: var(--ink);
+    --p-bg: #7fe0cb; --p-shoulder: #1f9f85; --p-face-a: #24ac8f; --p-face-b: #19a485; --p-face-c: #168a70; --p-ink: #101010; }
+  .strata .slate { --layer: var(--slate); --layer-edge: var(--edge-slate); --text: #fff; padding-bottom: 5rem; }
+
+  /* Type */
+  .strata h1, .strata h2, .strata h3 { font-family: var(--font-display); font-weight: 400; color: inherit; text-wrap: balance; letter-spacing: 0; }
+  .strata h1 { font-size: clamp(2.5rem, 6.4vw, 4.75rem); line-height: 1; max-width: 9.6em; margin: 0; }
+  .strata h2 { font-size: clamp(2rem, 4.5vw, 2.75rem); line-height: 1.05; margin: 0 0 2.25rem; }
+  .strata h3 { font-size: 1.625rem; line-height: 1.1; margin: 0; }
+
+  /* Hero */
+  .strata .hero { padding-block: 1rem 2.5rem; }
+  .strata .lead { font-size: 1.375rem; line-height: 1.3; max-width: 28rem; margin: 1.5rem 0 1.25rem; }
+  .strata .facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; margin: 0 0 2rem; padding: 0; font-family: var(--font-display); font-size: 1.25rem; }
+  .strata .facts li { display: flex; align-items: center; gap: 0.6rem; }
+  .strata .facts li::before {
+    content: ''; width: 0.7rem; height: 0.62rem; background: var(--charcoal);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  .strata .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin: 0; }
+  .strata .btn {
+    display: inline-block; padding: 14px 32px; border-radius: 9999px;
+    background: var(--charcoal); color: #fff; font-weight: 400; font-size: 1rem; line-height: 1.375; text-decoration: none;
+    transition: background-color 200ms ease-out, color 200ms ease-out, translate 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .strata .btn:hover { background: var(--ink); translate: 0 -3px; }
+  .strata .btn:active { translate: 0 0; transition-duration: 60ms; }
+  .strata .btn.on-slate { background: var(--signal); color: var(--ink); }
+  .strata .btn.on-slate:hover { background: #fff; }
+  .strata .link { color: inherit; font-size: 1.0625rem; text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; transition: text-decoration-thickness 150ms ease-out, text-underline-offset 200ms ease-out; }
+  .strata .link:hover { text-decoration-thickness: 2px; text-underline-offset: 0.38em; }
+
+  /* Sky furniture: one oversized origami kite beside the title, bleeding off the page */
+  .strata .sky { overflow: hidden; }
+  .strata .hero { padding-top: 0.5rem; padding-bottom: 0; }
+  @media (max-width: 767px) { .strata .sky { display: flex; flex-direction: column; padding-bottom: 0; } .strata .sky .hero { width: 100%; } }
+  @media (min-width: 768px) { .strata .hero { padding-bottom: 2.5rem; } }
+  .strata .hero h1, .strata .hero .lead, .strata .hero .facts { text-transform: uppercase; }
+  .strata .hero h1 { letter-spacing: 0.01em; }
+  .strata .hero .lead { letter-spacing: 0.04em; font-size: 1.125rem; }
+  .strata .sky h1 { color: #0d7a62; } /* Deep Mint darkened: 5.3:1 on white, 4.5:1 over the lattice lines */
+  .strata .kite-big { order: 2; position: relative; z-index: 0; align-self: flex-end; margin: -7.5rem -5vw -9rem 0; width: 62vw; height: auto; transform: perspective(70vw) rotateY(-34deg) rotateX(14deg) rotateZ(12deg); transform-origin: 50% 35%; pointer-events: none; transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .strata .kite-big polygon { pointer-events: auto; }
+  .strata .kite-big:hover { transform: perspective(70vw) rotateY(-24deg) rotateX(8deg) rotateZ(6deg) scale(1.04); }
+  @media (min-width: 768px) {
+    .strata .kite-big:hover { transform: perspective(1100px) rotateY(-24deg) rotateX(8deg) rotateZ(6deg) scale(1.04); }
+    .strata .kite-big { position: absolute; order: 0; margin: 0; align-self: auto; top: 0.5rem; right: 9vw; width: min(30vw, 480px); height: auto; transform: perspective(1100px) rotateY(-34deg) rotateX(14deg) rotateZ(12deg); }
+  }
+  .strata .facet { position: absolute; z-index: 0; fill: var(--sky); opacity: 0.55; }
+  .strata .facet.alt { fill: var(--mint); opacity: 0.45; }
+  .strata .cloud { position: absolute; z-index: 0; height: auto; pointer-events: none; }
+  .strata .mint .facet { fill: #6fe3c9; opacity: 0.6; }
+  .strata .mint .facet.alt { fill: #1f9f86; opacity: 0.45; }
+  .strata .slate .facet { fill: #6b7a90; opacity: 0.55; }
+  .strata .slate .facet.alt { fill: #3b4658; opacity: 0.6; }
+  .strata .marigold .facet { fill: #ffc93d; }
+  .strata .marigold .facet.alt { fill: #f0a800; }
+  @media (min-width: 768px) and (min-height: 620px) { .strata .sky { min-height: calc(100svh - 76px); } }
+  @media (max-width: 767px) {
+    .strata .facet { display: none; }
+    .strata .cloud { width: 15rem !important; }
+    .strata .hero .actions .btn { display: block; width: 100%; text-align: center; }
+    .strata .cloud:nth-of-type(1), .strata .cloud:nth-of-type(4) { display: none; }
+  }
+  @media (max-width: 479px) { .strata .talk { grid-template-columns: 4rem 1fr; } .strata .who { display: none; } }
+  /* Agenda */
+  .strata .talks { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in oklch, currentColor 32%, transparent); }
+  .strata .talk {
+    display: grid; grid-template-columns: 4.25rem 1fr 3.25rem; gap: 0 1rem; align-items: start;
+    padding-block: 1.5rem; border-bottom: 1px solid color-mix(in oklch, currentColor 32%, transparent);
+  }
+  .strata .when { display: flex; flex-direction: column; font-family: var(--font-display); }
+  .strata .day { font-size: 3.25rem; line-height: 0.9; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .strata .month { font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.3rem; }
+  .strata .topic { font-size: 1.1875rem; line-height: 1.35; margin: 0.5rem 0 0; max-width: 40rem; text-wrap: pretty; }
+  .strata .meta { margin: 0.6rem 0 0; font-size: 0.9375rem; font-weight: 400; }
+  .strata .nw { white-space: nowrap; }
+  .strata .who { padding-top: 0.15rem; }
+  .strata .who > * { transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .strata .day { transition: translate 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .strata .talk:hover .who > * { transform: scale(1.07) rotate(-3deg); }
+  .strata .talk:hover .day { translate: 0.2rem 0; }
+  @media (min-width: 768px) {
+    .strata .talk { grid-template-columns: 6.5rem 1fr 4.5rem; gap: 0 2rem; padding-block: 1.75rem; }
+    .strata .day { font-size: 4.5rem; }
+    .strata h3 { font-size: 2rem; }
+    .strata .topic { font-size: 1.3125rem; }
+  }
+  .strata .marigold { padding-bottom: 5.5rem; }
+  .strata .mint { padding-bottom: 7rem; }
+
+  /* Bedrock */
+  .strata .close p { max-width: 34rem; font-size: 1.1875rem; line-height: 1.4; margin: 0 0 1.75rem; }
+  .strata .close .actions { margin-bottom: 2.5rem; }
+  .strata .close .organiser { font-size: 1rem; margin: 0; color: #e7ebf1; }
+
+  /* Idle drift of the kite: a slow bob on its own property, so it never fights the parallax translate */
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes strata-bob { 0%, 100% { rotate: -1.4deg; } 50% { rotate: 1.6deg; } }
+    .strata .kite-big { animation: strata-bob 7s ease-in-out infinite; }
+  }
+
+  /* Scroll-driven depth: hero clouds and kite rise faster than the page, each at its own speed;
+     the sheets below keep their furniture sliding at different speeds too. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes strata-hero-rise { from { translate: 0 0; } to { translate: 0 calc(var(--speed) * -1); } }
+      @keyframes strata-rise { from { translate: 0 var(--speed); } to { translate: 0 calc(var(--speed) * -1); } }
+      .strata .cloud { animation: strata-hero-rise linear both; }
+      .strata .kite-big { animation: strata-hero-rise linear both, strata-bob 7s ease-in-out infinite; --speed: 240px; }
+      .strata .facet { animation: strata-rise linear both; }
+      /* Timelines live in their own rules: minifiers fold them into the shorthand, which browsers reject. */
+      .strata .cloud.cloud { animation-timeline: scroll(root); animation-range: 0px 100vh; }
+      .strata .kite-big.kite-big { animation-timeline: scroll(root), auto; animation-range: 0px 100vh, normal; }
+      .strata .facet.facet { animation-timeline: view(); animation-range: cover; }
+    }
+  }
+</style>
