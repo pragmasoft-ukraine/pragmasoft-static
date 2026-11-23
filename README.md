@@ -32,6 +32,7 @@
 <details open>
 <summary>Table of Contents</summary>
 
+- [About this repository](#about-this-repository)
 - [Demo](#demo)
 - [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
 - [Getting started](#getting-started)
@@ -39,6 +40,7 @@
   - [Commands](#commands)
   - [Configuration](#configuration)
   - [Deploy](#deploy)
+  - [Decap CMS](#decap-cms)
 - [Frequently Asked Questions](#frequently-asked-questions)
 - [Related Projects](#related-projects)
 - [Contributing](#contributing)
@@ -46,6 +48,12 @@
 - [License](#license)
 
 </details>
+
+<br>
+
+## About this repository
+
+Marketing and portfolio site for **Pragmasoft OÜ** at **https://pragmasoft.dev**, built on the AstroWind theme below (Astro 7, Tailwind 4, MDX, `en` and `uk`). It is a fully static Astro build served by a single **Cloudflare Worker** (static assets plus two small OAuth handlers for the Decap CMS login). The theme documentation further down is the original AstroWind text; the project-specific setup is in [Deploy](#deploy) and [Decap CMS](#decap-cms). Agent and maintainer notes live in [`CLAUDE.md`](./CLAUDE.md).
 
 <br>
 
@@ -143,8 +151,8 @@ All commands are run from the root of the project, from a terminal:
 | Command               | Action                                             |
 | :-------------------- | :------------------------------------------------- |
 | `npm install`         | Installs dependencies                              |
-| `npm run dev`         | Starts local dev server at `localhost:3000`        |
-| `npm run build`       | Build your production site to `./dist/`            |
+| `npm run dev`         | Starts local dev server at `localhost:4321`        |
+| `npm run build`       | Type-check and build the site to `./dist/` (~2 min) |
 | `npm run preview`     | Preview your build locally, before deploying       |
 | `npm run format`      | Format codes with Prettier                         |
 | `npm run lint:eslint` | Run Eslint                                         |
@@ -242,29 +250,45 @@ To customize Font families, Colors or more Elements refer to the following files
 
 ### Deploy
 
-#### Deploy to production (manual)
+Production runs on one Cloudflare Worker, `pragmasoft-static`, configured in [`wrangler.jsonc`](./wrangler.jsonc): `dist/` is served as static assets and `worker/index.js` handles `/api/auth` and `/api/callback`. The custom domain `pragmasoft.dev` is attached through the `routes` entry (Wrangler creates the DNS record and certificate; no manual CNAME). `public/_headers` and `public/_redirects` are honored as is.
 
-You can create an optimized production build with:
+#### Automatic (GitHub Actions)
+
+[`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) builds and deploys:
+
+| Trigger | Result |
+| :-- | :-- |
+| Push to `master` | `wrangler deploy`: **production** at https://pragmasoft.dev |
+| Pull request (same repo) | `wrangler versions upload`: a preview version that is not live; the preview URL is printed in the job log |
+
+Repository settings required (Settings → Secrets and variables → Actions):
+
+| Name | Kind | Purpose |
+| :-- | :-- | :-- |
+| `CLOUDFLARE_API_TOKEN` | secret | API token with Workers Scripts: Edit and rights to attach the custom domain |
+| `CLOUDFLARE_ACCOUNT_ID` | variable | Cloudflare account id (not sensitive) |
+| `OAUTH_CLIENT_SECRET` | secret | GitHub OAuth app client secret; uploaded to the Worker as `GITHUB_CLIENT_SECRET` on every `master` deploy |
+
+`GITHUB_CLIENT_ID` is a public var in `wrangler.jsonc`. To rotate the client secret: create a new one in the GitHub OAuth app, update `OAUTH_CLIENT_SECRET`, and re-run the workflow.
+
+#### Manual
 
 ```shell
 npm run build
+npx wrangler deploy                 # production
+npx wrangler versions upload        # preview version, not live
+npx wrangler secret put GITHUB_CLIENT_SECRET   # set or change the secret immediately
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+Wrangler authenticates with `CLOUDFLARE_API_TOKEN` in the environment (or `npx wrangler login`). If a secret command fails with "latest version of your Worker isn't currently deployed", deploy first or use `wrangler versions secret put`.
 
-#### Deploy to Netlify
+> Note: pushing or merging to `master` deploys to production, and saving in the CMS commits to `master`. Work on a branch and open a pull request.
 
-Clone this repository on your own GitHub account and deploy it to Netlify:
+<br>
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
+### Decap CMS
 
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
+The content manager is at **`/decapcms/`** (not `/admin/`), configured in `public/decapcms/config.yml` with the GitHub backend (`pragmasoft-ukraine/pragmasoft-static`, branch `master`). Login goes through the Worker: `/api/auth` redirects to GitHub and `/api/callback` exchanges the code for a token. The GitHub OAuth app's callback URL must be `https://pragmasoft.dev/api/callback`. For local editing, set `local_backend: true` (already on) and run `npx decap-server`.
 
 <br>
 
