@@ -14,7 +14,7 @@ Secondary (inferred from the en/uk locales, not confirmed): Ukrainian-speaking v
 
 ## Product Purpose
 
-Marketing and portfolio site for Pragmasoft OÜ (domain pragmasoft.com.ua). It presents what the company does today, its team, client testimonials and past case studies, so a prospective client can judge credibility and get in touch via the contact page. Success is a qualified inquiry.
+Marketing and portfolio site for Pragmasoft OÜ (domain pragmasoft.dev). It presents what the company does today, its team, client testimonials and past case studies, so a prospective client can judge credibility and get in touch via the contact page. Success is a qualified inquiry.
 
 ## Positioning
 

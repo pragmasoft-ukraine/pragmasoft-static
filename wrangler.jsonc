@@ -1,0 +1,17 @@
+{
+  "name": "pragmasoft-static",
+  "main": "./worker/index.js",
+  "compatibility_date": "2026-11-23",
+  "workers_dev": true,
+  "routes": [{ "pattern": "pragmasoft.dev", "custom_domain": true }],
+  "vars": {
+    // Public OAuth app id (Decap CMS login). GITHUB_CLIENT_SECRET is a Worker secret.
+    "GITHUB_CLIENT_ID": "Ov23liErqVC0ZBUkaNh2"
+  },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  }
+}

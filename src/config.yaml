@@ -1,7 +1,7 @@
 site:
   name: Pragmasoft OÜ
   # override with ENV SITE_NAME
-  site: 'https://pragmasoft.com.ua'
+  site: 'https://pragmasoft.dev'
   base: '/'
   trailingSlash: true
 
