@@ -48,6 +48,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Declares which Worker secrets to upload; values are expanded from the environment at deploy
+      # time, so the file itself never contains a secret. Uploaded atomically with the version being
+      # deployed (a separate `secret bulk` step fails whenever the latest uploaded version, such as a
+      # PR preview, is not the deployed one).
+      - name: Prepare Worker secrets
+        if: github.event_name != 'pull_request'
+        run: echo 'GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}' > "$RUNNER_TEMP/worker-secrets.env"
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         env:
@@ -55,7 +63,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-          # Production on master, otherwise upload a version without making it live
-          command: ${{ github.event_name == 'pull_request' && 'versions upload' || 'deploy' }}
-          # Secrets apply to the live Worker immediately, so never sync them from pull requests
-          secrets: ${{ github.event_name != 'pull_request' && 'GITHUB_CLIENT_SECRET' || '' }}
+          # Production on master (with secrets), otherwise upload a version without making it live
+          command: ${{ github.event_name == 'pull_request' && 'versions upload' || format('deploy --secrets-file {0}/worker-secrets.env', runner.temp) }}
