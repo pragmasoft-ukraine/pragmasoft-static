@@ -1,0 +1,7 @@
+shots/
+*.json
+!baseline-pinned.json
+*-build.log
+*-cmp*.txt
+blog.ts.orig
+srv.pid
