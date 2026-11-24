@@ -12,7 +12,7 @@ Marketing/portfolio site for Pragmasoft OÜ, canonical domain **https://pragmaso
   - `routes: [{ pattern: "pragmasoft.dev", custom_domain: true }]`: Wrangler creates the DNS record and certificate itself. Do **not** add a manual CNAME; a CNAME to `workers.dev` does not work. The zone must be on this Cloudflare account.
   - `vars.GITHUB_CLIENT_ID` is a plain, public var.
 - `public/_headers` and `public/_redirects` are copied into `dist/` and honored natively by Workers (the `/` to `/en/` 301, `.ics` headers, immutable caching for `/_astro/*`). Editing them needs no Worker change.
-- The Worker handlers are the old Pages Functions, adapted (`onRequest(context)` kept as is). `functions/` is legacy and only still present until the old Pages project is removed; it is not used by the Worker. Do not edit it.
+- The Worker handlers (`worker/auth.js`, `worker/callback.js`) are the former Pages Functions, adapted (`onRequest(context)` kept as is). The old `functions/` folder and the Cloudflare Pages project have been removed.
 
 ## Tooling decision: Wrangler, not the `cf` CLI
 
@@ -66,7 +66,7 @@ Gotchas that already bit us:
 ## Domains
 
 - `pragmasoft.dev`: zone on the Pragmasoft OÜ Cloudflare account; canonical (`site:` in `src/config.yaml`).
-- `pragmasoft.com.ua`: the previous domain, in a **different Cloudflare account**. Worker routes cannot span accounts, so redirecting it to `pragmasoft.dev` must be done there with a Redirect Rule (a proxied placeholder DNS record, then a dynamic 301 to `concat("https://pragmasoft.dev", http.request.uri.path)`). Status of that redirect: not done yet.
+- `pragmasoft.com.ua`: the previous domain, in a **different Cloudflare account**. Worker routes cannot span accounts, so redirecting it to `pragmasoft.dev` must be done there with a Redirect Rule (a proxied placeholder DNS record, then a dynamic 301 to `concat("https://pragmasoft.dev", http.request.uri.path)`). Status: done (301 with path and query preserved; the old Pages project and its custom domain were removed).
 
 ## Site checks
 
@@ -81,5 +81,4 @@ Gotchas that already bit us:
 
 ## Open items
 
-- Delete the old Cloudflare Pages project (still attached to the repo), then delete `functions/`.
-- Add the `pragmasoft.com.ua` to `pragmasoft.dev` redirect rule (other account).
+None at the moment.

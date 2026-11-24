@@ -24,7 +24,7 @@ Confirmed: a Ukrainian engineering team founded in 2004, re-established in Eston
 
 - Astro 4 + Tailwind site derived from the AstroWind template, with English (default) and Ukrainian locales.
 - Content lives in `src/content/section/{en,uk}` and `src/content/post/{en,uk}` (portfolio case studies).
-- Decap CMS is present under `public/decapcms`; serverless functions are in `functions/api`.
+- Decap CMS is present under `public/decapcms`; the OAuth login handlers are in `worker/`, served by the Cloudflare Worker.
 - Deployed via Netlify/Vercel configuration files.
 
 ## Capabilities and Constraints
