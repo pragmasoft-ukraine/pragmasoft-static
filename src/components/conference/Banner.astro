@@ -34,7 +34,7 @@ const onConferencePage = /\/conference\/?$/.test(Astro.url.pathname);
   const isClosed = () => {
     try { return sessionStorage.getItem(KEY) === '1'; } catch { return false; }
   };
-  const over = () => Date.now() > Date.UTC(2026, 11, 10, 22, 0); // after the last talk
+  const over = () => Date.now() > Date.UTC(2026, 11, 30, 15, 0); // after the last talk (30 Dec, 17:00 Kyiv)
   const apply = () => {
     const hide = over() || isClosed();
     document.querySelectorAll<HTMLElement>('.conf-banner').forEach((el) => { el.hidden = hide; });
