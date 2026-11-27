@@ -35,6 +35,7 @@ export const talks: Talk[] = [
     speaker: { en: 'Volodymyr Kozliakov', uk: 'Володимир Козляков' },
     initials: { en: 'VK', uk: 'ВК' },
     photo: 'kozliakov',
+    slides: 'volodymyr-kozliakov-2026-agents-do-the-work-gates-check-i-decide',
     topic: {
       en: 'Agents Do the Work, Gates Check It, I Decide: Running AI Coding Agents with Real Guardrails',
       uk: 'Агенти працюють, гейти перевіряють, я вирішую: AI-агенти для коду з реальними запобіжниками',
